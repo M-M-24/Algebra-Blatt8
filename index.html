@@ -220,69 +220,141 @@
 
             <h4>Teil 1: Noethersch und Artinsch</h4>
             <div class="interactive-step">
-                <p><b>Schritt 1:</b> Warum muss eine endlich-dimensionale Algebra sowohl die aufsteigende (ACC) als auch die absteigende Kettenbedingung (DCC) für <span class="term" data-glossary-key="linksideal">Linksideale</span> erfüllen?</p>
+                <p><b>Schritt 1.1: Die Verbindung zwischen Idealen und Vektorräumen.</b> Was ist ein <span class="term" data-glossary-key="linksideal">Linksideal</span> in $A$ aus der Perspektive der Vektorraumstruktur von $A$?</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>Betrachten Sie eine Kette von <span class="term" data-glossary-key="linksideal">Linksidealen</span>. Jedes <span class="term" data-glossary-key="linksideal">Linksideal</span> ist insbesondere ein $K$-<span class="term" data-glossary-key="vektorraum">Vektorraum</span>-Unterraum von $A$. Was können Sie über die Dimensionen der <span class="term" data-glossary-key="vektorraum">Vektorräume</span> in einer echt aufsteigenden oder absteigenden Kette sagen?</p>
+                    <p>Ein <span class="term" data-glossary-key="linksideal">Linksideal</span> $I$ ist eine Untergruppe von $(A,+)$, die unter Linksmultiplikation mit Elementen aus $A$ abgeschlossen ist. Da $A$ eine $K$-Algebra ist, enthält $K$ (eingebettet als $K \cdot 1_A$) und damit ist $I$ insbesondere abgeschlossen unter Skalarmultiplikation mit Elementen aus $K$. Was folgt daraus?</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Ein <span class="term" data-glossary-key="ring">Ring</span> $A$ ist <span class="term" data-glossary-key="noethersch">links-noethersch</span>, wenn jede aufsteigende Kette von <span class="term" data-glossary-key="linksideal">Linksidealen</span> stationär wird. Er ist <span class="term" data-glossary-key="artinsch">links-artinsch</span>, wenn jede absteigende Kette von <span class="term" data-glossary-key="linksideal">Linksidealen</span> stationär wird.</p>
-                    <p>Sei $I_1 \subseteq I_2 \subseteq I_3 \subseteq \dots$ eine aufsteigende Kette von <span class="term" data-glossary-key="linksideal">Linksidealen</span> in $A$. Jedes $I_j$ ist auch ein $K$-Untervektorraum von $A$. Daher gilt $\dim_K(I_1) \le \dim_K(I_2) \le \dots$. Da $\dim_K(A)$ endlich ist, muss diese Folge von ganzen Zahlen stationär werden. Das heißt, es gibt ein $n_0$, so dass für alle $k \ge n_0$ gilt: $\dim_K(I_k) = \dim_K(I_{n_0})$. Da $I_{n_0} \subseteq I_k$ und die Dimensionen gleich sind, muss $I_k = I_{n_0}$ gelten. Die Kette wird also stationär und $A$ ist <span class="term" data-glossary-key="noethersch">noethersch</span>.</p>
-                    <p>Analog argumentiert man für eine absteigende Kette $J_1 \supseteq J_2 \supseteq J_3 \supseteq \dots$. Die Dimensionen $\dim_K(J_j)$ bilden eine fallende Folge nichtnegativer ganzer Zahlen, die ebenfalls stationär werden muss. Also ist $A$ auch <span class="term" data-glossary-key="artinsch">artinsch</span>.</p>
-                    <p><i>Skript-Bezug:</i> Dies ist genau die Aussage von <b>Bemerkung 4.30 (S. 63)</b>.</p>
+                    <p>Jedes <span class="term" data-glossary-key="linksideal">Linksideal</span> $I$ in der $K$-Algebra $A$ ist insbesondere ein $K$-Untervektorraum von $A$. Denn für $k \in K$ und $i \in I$ ist $ki = (k \cdot 1_A)i \in I$, da $k \cdot 1_A \in A$. Somit ist $I$ unter der Skalarmultiplikation abgeschlossen und da es eine additive Untergruppe ist, ist es ein Untervektorraum.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 1.2: Die aufsteigende Kette (ACC).</b> Betrachten Sie eine aufsteigende Kette von <span class="term" data-glossary-key="linksideal">Linksidealen</span> $I_1 \subseteq I_2 \subseteq I_3 \subseteq \dots$. Was können Sie über die Folge ihrer Dimensionen sagen?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Aus $I_j \subseteq I_{j+1}$ folgt eine Beziehung zwischen $\dim_K(I_j)$ und $\dim_K(I_{j+1})$. Die Dimensionen sind ganze Zahlen und durch $\dim_K(A)$ beschränkt. Was bedeutet das für die Folge der Dimensionen?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Da jedes $I_j$ ein $K$-Untervektorraum von $A$ ist, gilt für ihre Dimensionen: $\dim_K(I_1) \le \dim_K(I_2) \le \dots \le \dim_K(A)$. Wir haben also eine aufsteigende Folge von nicht-negativen ganzen Zahlen, die durch $\dim_K(A)$ nach oben beschränkt ist. Eine solche Folge muss stationär werden. Das heißt, es gibt einen Index $n_0$, so dass für alle $k \ge n_0$ gilt $\dim_K(I_k) = \dim_K(I_{n_0})$.</p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 1.3: Von stationären Dimensionen zu stationären Idealen.</b> Wenn $\dim_K(I_k) = \dim_K(I_{n_0})$ für $k \ge n_0$, warum muss dann auch $I_k = I_{n_0}$ gelten?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Sie wissen bereits, dass $I_{n_0} \subseteq I_k$ gilt. Was wissen Sie über einen Unterraum, der in einem anderen Raum enthalten ist und die gleiche endliche Dimension hat?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Aus der linearen Algebra wissen wir: Wenn $U$ ein Untervektorraum von $V$ ist und $\dim(U) = \dim(V) < \infty$, dann muss $U=V$ sein. Da wir $I_{n_0} \subseteq I_k$ und $\dim_K(I_{n_0}) = \dim_K(I_k)$ haben, folgt direkt $I_{n_0} = I_k$.
+                    <br>Die Kette $I_1 \subseteq I_2 \subseteq \dots$ wird also stationär. Per Definition ist $A$ somit <span class="term" data-glossary-key="noethersch">noethersch</span>.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 1.4: Die absteigende Kette (DCC).</b> Führen Sie das gleiche Argument für eine absteigende Kette von <span class="term" data-glossary-key="linksideal">Linksidealen</span> $J_1 \supseteq J_2 \supseteq \dots$ durch, um zu zeigen, dass $A$ <span class="term" data-glossary-key="artinsch">artinsch</span> ist.</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Betrachten Sie wieder die Folge der Dimensionen. Was für eine Art von Folge ist das jetzt?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Für die absteigende Kette $J_1 \supseteq J_2 \supseteq \dots$ gilt für die Dimensionen $\dim_K(J_1) \ge \dim_K(J_2) \ge \dots \ge 0$. Dies ist eine fallende Folge nicht-negativer ganzer Zahlen. Auch diese muss stationär werden. Es gibt also ein $m_0$, so dass für alle $k \ge m_0$ gilt $\dim_K(J_k) = \dim_K(J_{m_0})$.
+                    <br>Aus $J_k \subseteq J_{m_0}$ und gleicher Dimension folgt wieder $J_k = J_{m_0}$. Die Kette wird stationär, also ist $A$ <span class="term" data-glossary-key="artinsch">artinsch</span>.</p>
                 </details>
             </div>
             
             <h4>Teil 2: $A$ als $A \otimes_K A\op$-Modul</h4>
-             <div class="interactive-step">
-                <p><b>Schritt 2:</b> Um zu zeigen, dass $A$ ein <span class="term" data-glossary-key="a-modul">Modul</span> über dem <span class="term" data-glossary-key="ring">Ring</span> $B = A \otimes_K A\op$ ist, müssen die Modulaxiome überprüft werden. Welches ist das entscheidende Axiom, das die Struktur des <span class="term" data-glossary-key="tensorprodukt">Tensorproduktrings</span> mit der Operation auf $A$ verbindet?</p>
-                <details>
+            <div class="interactive-step">
+                <p><b>Schritt 2.1: Die Modulaxiome.</b> Um zu zeigen, dass $A$ ein linker $B$-Modul ist (für $B = A \otimes_K A\op$), müssen wir die Modulaxiome prüfen. Das wichtigste ist die Assoziativität der Skalarmultiplikation: $(b_1 b_2) \cdot a = b_1 \cdot (b_2 \cdot a)$. Erinnern Sie sich, wie die Multiplikation in $B$ und die Aktion auf $A$ definiert sind?</p>
+                 <details>
                     <summary>Hinweis</summary>
-                    <p>Die schwierigste Eigenschaft ist meist die Verträglichkeit der Ringmultiplikation mit der Skalarmultiplikation: $(b_1 b_2) \cdot a = b_1 \cdot (b_2 \cdot a)$ für $b_1, b_2 \in B, a \in A$. Erinnern Sie sich an die Multiplikation im <span class="term" data-glossary-key="ring">Ring</span> $A \otimes_K A\op$: $(x_1 \otimes y_1)(x_2 \otimes y_2) = (x_1x_2 \otimes y_2y_1)$.</p>
+                    <p>Die Multiplikation in $B = A \otimes_K A\op$ ist $(x_1 \otimes y_1)(x_2 \otimes y_2) = x_1x_2 \otimes y_2y_1$. Die Aktion auf $a \in A$ ist $(x \otimes y) \cdot a = xay$. Setzen Sie dies in die Assoziativitäts-Bedingung ein.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Sei $B = A \otimes_K A\op$. Wir müssen zeigen, dass die gegebene Operation $A$ zu einem linken $B$-Modul macht. Die Operation ist $(x \otimes y) \cdot a = xay$. Wir überprüfen die Assoziativität. Seien $b_1 = x_1 \otimes y_1$ und $b_2 = x_2 \otimes y_2$ Elemente aus $B$.
-                    <br>Einerseits:
+                    <p>Seien $b_1 = x_1 \otimes y_1$ und $b_2 = x_2 \otimes y_2$ Elemente aus $B = A \otimes_K A\op$.
+                    <br><b>Linke Seite:</b>
                     $$ (b_1 b_2) \cdot a = ((x_1 \otimes y_1)(x_2 \otimes y_2)) \cdot a = (x_1x_2 \otimes y_2y_1) \cdot a = (x_1x_2)a(y_2y_1) $$
-                    Andererseits:
+                    <b>Rechte Seite:</b>
                     $$ b_1 \cdot (b_2 \cdot a) = (x_1 \otimes y_1) \cdot (x_2ay_2) = x_1(x_2ay_2)y_1 $$
-                    Da die Multiplikation in $A$ assoziativ ist, sind beide Ausdrücke gleich. Die Distributivgesetze folgen aus der Bilinearität des Tensorprodukts und der Distributivität in $A$. Somit ist $A$ ein $A \otimes_K A\op$-Modul.</p>
+                    Da die Multiplikation im Ring $A$ assoziativ ist, gilt $(x_1x_2)a(y_2y_1) = x_1(x_2a)y_2y_1 = x_1x_2a(y_2y_1)$ und $x_1(x_2ay_2)y_1 = x_1x_2ay_2y_1$. Die Ausdrücke sind identisch. Die Distributivgesetze und das Einselement-Axiom ($ (1_A \otimes 1_A) \cdot a = 1_A a 1_A = a $) folgen ebenfalls direkt aus den Ring-Axiomen von $A$ und der Bilinearität des Tensorprodukts. Somit ist $A$ ein $A \otimes_K A\op$-Modul.</p>
                 </details>
             </div>
 
             <h4>Teil 3: Der Endomorphismenring</h4>
             <div class="interactive-step">
-                <p><b>Schritt 3:</b> Ein <span class="term" data-glossary-key="endomorphismus">Endomorphismus</span> $\phi \in \End_{A \otimes_K A\op}(A)$ ist eine $K$-lineare Abbildung $\phi: A \to A$, die mit der Modul-Aktion kommutiert. Was bedeutet die Bedingung $\phi((x \otimes y) \cdot a) = (x \otimes y) \cdot \phi(a)$ konkret?</p>
+                <p><b>Schritt 3.1: Die definierende Eigenschaft.</b> Sei $\phi \in \End_{A \otimes_K A\op}(A)$. Was bedeutet es, dass $\phi$ ein Homomorphismus von $A \otimes_K A\op$-Moduln ist? Schreiben Sie die Bedingung $\phi(b \cdot a) = b \cdot \phi(a)$ für ein Basiselement $b = x \otimes y$ explizit aus.</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>Schreiben Sie die Bedingung aus: $\phi(xay) = x\phi(a)y$ für alle $x, y, a \in A$. Was passiert, wenn Sie spezielle Werte für $x$ und $y$ einsetzen, z.B. das Einselement $1_A$?</p>
+                    <p>Erinnern Sie sich, dass $b \cdot a = xay$ und $b \cdot \phi(a) = x\phi(a)y$.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Sei $\phi \in \End_{A \otimes_K A\op}(A)$. Die definierende Eigenschaft ist $\phi(xay) = x\phi(a)y$ für alle $a, x, y \in A$.
-                    <ol>
-                    <li>Setzen wir $x=1_A$, erhalten wir $\phi(ay) = \phi(a)y$. Dies bedeutet, dass $\phi$ ein <span class="term" data-glossary-key="bimodul">Rechts-A-Modul-Homomorphismus</span> ist.
-                    Insbesondere für $a=1_A$ gilt $\phi(y) = \phi(1_A)y$. Sei $z := \phi(1_A) \in A$. Dann ist $\phi$ die Linksmultiplikation mit $z$, also $\phi(a) = za$ für alle $a \in A$.</li>
-                    <li>Setzen wir nun $y=1_A$ in die ursprüngliche Gleichung, erhalten wir $\phi(xa) = x\phi(a)$.
-                    Setzen wir unsere Form für $\phi$ ein: $z(xa) = x(za)$.</li>
-                    <li>Da dies für alle $x, a \in A$ gelten muss, muss $z$ mit allen Elementen von $A$ kommutieren. Also ist $z \in \Z(A)$, dem <span class="term" data-glossary-key="zentrum">Zentrum</span> von $A$.</li>
-                    </ol>
-                    Somit ist jeder solche <span class="term" data-glossary-key="endomorphismus">Endomorphismus</span> eine Linksmultiplikation mit einem Element aus dem <span class="term" data-glossary-key="zentrum">Zentrum</span>.
-                    <br>Umgekehrt, sei $z \in \Z(A)$ und definiere $\phi_z(a) = za$. Diese Abbildung ist in $\End_K(A)$. Wir prüfen die Kommutativitätsbedingung:
-                    $$ \phi_z(xay) = z(xay) = (zx)ay = (xz)ay = x(za)y = x\phi_z(a)y $$
-                    Die Gleichheit gilt, da $z \in \Z(A)$. Also ist $\phi_z \in \End_{A \otimes_K A\op}(A)$.
-                    <br>Die Abbildung $\Psi: \Z(A) \to \End_{A \otimes_K A\op}(A)$, gegeben durch $\Psi(z) = \phi_z$, ist ein <span class="term" data-glossary-key="ring">Ring-Isomorphismus</span>. Sie ist offensichtlich ein Homomorphismus, injektiv (wenn $za=0$ für alle $a$, dann ist $z=0$) und surjektiv (wie oben gezeigt). Daher gilt $\End_{A \otimes_K A\op}(A) \cong \Z(A)$.</p>
+                    <p>Ein Homomorphismus $\phi$ von $A \otimes_K A\op$-Moduln muss die Bedingung $\phi(b \cdot m) = b \cdot \phi(m)$ für alle $b$ im Ring und $m$ im Modul erfüllen. Hier ist der Ring $A \otimes_K A\op$ und der Modul ist $A$. Es genügt, die Bedingung für Erzeuger des Rings zu prüfen, d.h. für reine Tensoren $b = x \otimes y$.
+                    Die Bedingung lautet also:
+                    $$ \phi(xay) = x\phi(a)y \quad \text{für alle } a, x, y \in A $$
+                    Dies ist die zentrale Gleichung, die wir analysieren müssen.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 3.2: Bestimmung der Form von $\phi$.</b> Nutzen Sie die Gleichung $\phi(xay) = x\phi(a)y$, um die Struktur von $\phi$ aufzudecken. Was passiert, wenn Sie spezielle Werte für $x$ und $a$ einsetzen?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Setzen Sie $x=1_A$ und $a=1_A$. Was sagt Ihnen das über $\phi(y)$?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Wir setzen $x=1_A$ und $a=1_A$ in die Gleichung $\phi(xay) = x\phi(a)y$ ein.
+                    $$ \phi(1_A \cdot 1_A \cdot y) = 1_A \cdot \phi(1_A) \cdot y $$
+                    $$ \phi(y) = \phi(1_A) y $$
+                    Nennen wir das Element $z := \phi(1_A) \in A$. Dann sehen wir, dass die Abbildung $\phi$ vollständig durch das Element $z$ bestimmt ist. $\phi$ ist einfach die Linksmultiplikation mit $z$: $\phi(a) = za$ für alle $a \in A$.
+                    </p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 3.3: Welche Eigenschaft muss $z$ haben?</b> Wir haben die Form von $\phi$ gefunden, aber noch nicht alle Informationen aus der Gleichung $\phi(xay) = x\phi(a)y$ genutzt. Setzen Sie die gefundene Form $\phi(a)=za$ in die Gleichung ein und finden Sie die Bedingung für $z$.</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Sie müssen nun die Gleichung $z(xay) = x(za)y$ für alle $x,y,a \in A$ verifizieren. Welche Eigenschaft von $z$ garantiert, dass diese Gleichung für alle $x,y,a$ gilt?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Wir setzen $\phi(a)=za$ in die ursprüngliche Bedingung ein:
+                    $$ \phi(xay) = z(xay) $$
+                    $$ x\phi(a)y = x(za)y $$
+                    Also muss gelten: $z(xay) = x(za)y$. Dank der Assoziativität in $A$ ist das dasselbe wie $(zx)ay = (xz)ay$.
+                    Da dies für alle $a \in A$ gelten muss, können wir $a=1_A$ setzen und erhalten:
+                    $$ zx = xz \quad \text{für alle } x \in A $$
+                    Das bedeutet, dass $z$ mit allen Elementen von $A$ kommutieren muss. Per Definition heißt das, $z$ muss im <span class="term" data-glossary-key="zentrum">Zentrum</span> von $A$ liegen, also $z \in \Z(A)$.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 3.4: Die Umkehrung und der Isomorphismus.</b> Wir haben gezeigt, dass jeder Endomorphismus $\phi$ die Form $\phi_z(a) = za$ für ein $z \in \Z(A)$ hat. Zeigen Sie nun die umgekehrte Richtung: Ist jede solche Abbildung auch ein gültiger Endomorphismus? Was schließt dies?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Nehmen Sie ein $z \in \Z(A)$, definieren Sie $\phi_z(a) = za$ und prüfen Sie, ob $\phi_z(xay) = x\phi_z(a)y$ gilt. Nutzen Sie dabei die Eigenschaft von $z$.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Sei $z \in \Z(A)$ und sei $\phi_z(a) = za$. Wir prüfen die Bedingung:
+                    $$ x\phi_z(a)y = x(za)y $$
+                    Da $z$ im Zentrum liegt, ist $za = az$. Aber das brauchen wir hier nicht. Wir brauchen $zx=xz$.
+                    $$ \phi_z(xay) = z(xay) = (zx)ay \stackrel{z \in \Z(A)}{=} (xz)ay = x(za)y = x\phi_z(a)y $$
+                    Die Bedingung ist erfüllt, also ist $\phi_z$ für jedes $z \in \Z(A)$ ein Element von $\End_{A \otimes_K A\op}(A)$.
+                    <br>Wir haben also eine bijektive Abbildung $\Psi: \Z(A) \to \End_{A \otimes_K A\op}(A)$, gegeben durch $\Psi(z) = \phi_z$. Man kann leicht nachrechnen, dass diese Abbildung ein Ringhomomorphismus ist. Zum Beispiel $\Psi(z_1+z_2)(a) = (z_1+z_2)a = z_1a+z_2a = \Psi(z_1)(a)+\Psi(z_2)(a)$ und $\Psi(z_1z_2)(a) = (z_1z_2)a = z_1(z_2a) = \Psi(z_1)(\Psi(z_2)(a))$.
+                    <br>Somit ist $\Psi$ ein <span class="term" data-glossary-key="isomorphismus">Ring-Isomorphismus</span> und es gilt $\End_{A \otimes_K A\op}(A) \cong \Z(A)$.</p>
                 </details>
             </div>
             
             <h3>Zusammenfassung</h3>
             <p>Die Lösung beruht auf drei Kernideen:
             <ol>
-                <li>Die endliche Dimension über $K$ schränkt die Länge von Ketten von Unterstrukturen (Idealen) ein, was direkt zu den Kettenbedingungen führt.</li>
-                <li>Die Modulstruktur von $A$ über $A \otimes_K A\op$ ist eine natürliche Verallgemeinerung der Links- und Rechts-Modulstruktur und wird durch die Assoziativität von $A$ gewährleistet.</li>
-                <li>Die Symmetrien dieser Modulstruktur (die Endomorphismen) sind stark eingeschränkt. Durch geschicktes Einsetzen von Elementen zeigt man, dass sie genau den Linksmultiplikationen mit Elementen aus dem Zentrum entsprechen.</li>
+                <li>Die endliche Dimension über $K$ schränkt die Länge von Ketten von Unterstrukturen (Idealen) ein, was direkt zu den Kettenbedingungen führt. Dies ist ein Standardargument, das die Vektorraumstruktur mit der Ringstruktur verknüpft.</li>
+                <li>Die Modulstruktur von $A$ über $A \otimes_K A\op$ ist eine natürliche Verallgemeinerung der Links- und Rechts-Modulstruktur und wird durch die Assoziativität von $A$ gewährleistet. Dies formalisiert die Idee von $A$ als <span class="term" data-glossary-key="bimodul">Bimodul</span> über sich selbst.</li>
+                <li>Die Symmetrien dieser Bimodul-Struktur (die Endomorphismen) sind stark eingeschränkt. Durch geschicktes Einsetzen von Elementen (insbesondere der Eins) zeigt man, dass sie genau den Linksmultiplikationen mit Elementen aus dem <span class="term" data-glossary-key="zentrum">Zentrum</span> entsprechen. Dies ist ein schönes Beispiel, wie man abstrakte Bedingungen durch konkrete Rechnungen greifbar macht.</li>
             </ol>
             
             <details>
@@ -298,11 +370,10 @@
                 Wegen der Assoziativität in $A$ sind die beiden Ausdrücke gleich. Die Distributivität und die Eigenschaft $1_B \cdot a = a$ (wobei $1_B = 1_A \otimes 1_A$) folgen ebenfalls leicht. Also ist $A$ ein $A \otimes_K A\op$-Modul.</p>
                 
                 <p><b>Zu 3:</b> Sei $\phi \in \End_{A \otimes_K A\op}(A)$. Dies bedeutet, $\phi: A \to A$ ist ein $K$-Vektorraum-Homomorphismus und es gilt $\phi((x \otimes y)\cdot a) = (x \otimes y) \cdot \phi(a)$ für alle $x,y,a \in A$. Ausgeschrieben ist das $\phi(xay) = x\phi(a)y$.
-                <br>Setze $x=1_A$: $\phi(ay) = \phi(a)y$.
-                <br>Setze nun $a=1_A$: $\phi(y) = \phi(1_A)y$. Sei $z := \phi(1_A)$. Dann ist $\phi$ die Linksmultiplikation mit $z$, d.h. $\phi(a) = za$ für alle $a \in A$.
-                <br>Nun setzen wir $y=1_A$ in die ursprüngliche Bedingung: $\phi(xa) = x\phi(a)$. Mit $\phi(a)=za$ wird dies zu $z(xa) = x(za)$. Da die Multiplikation in $A$ assoziativ ist, vereinfacht sich dies zu $(zx)a = (xz)a$. Da dies für alle $a \in A$ gelten muss (z.B. für $a=1_A$), folgt $zx=xz$ für alle $x \in A$. Das bedeutet, $z$ muss im Zentrum von $A$ liegen, $z \in \Z(A)$.
+                <br>Setze $x=a=1_A$: $\phi(y) = \phi(1_A)y$. Sei $z := \phi(1_A)$. Dann ist $\phi$ die Linksmultiplikation mit $z$, d.h. $\phi(a) = za$ für alle $a \in A$.
+                <br>Setzen wir dies in die ursprüngliche Bedingung ein: $z(xay) = x(za)y$. Wegen der Assoziativität in $A$ ist dies äquivalent zu $(zx)ay = (xz)ay$. Da dies für alle $a \in A$ gelten muss (setze $a=1_A$), folgt $zx=xz$ für alle $x \in A$. Das bedeutet, $z$ muss im Zentrum von $A$ liegen, $z \in \Z(A)$.
                 <br>Also ist jeder Endomorphismus in $\End_{A \otimes_K A\op}(A)$ von der Form $a \mapsto za$ für ein $z \in \Z(A)$.
-                <br>Umgekehrt, für jedes $z \in \Z(A)$ ist die Abbildung $\phi_z(a) = za$ ein solcher Endomorphismus, da $\phi_z(xay) = z(xay) = xzay = x(za)y = x\phi_z(a)y$.
+                <br>Umgekehrt, für jedes $z \in \Z(A)$ ist die Abbildung $\phi_z(a) = za$ ein solcher Endomorphismus, da $\phi_z(xay) = z(xay) = (zx)ay = (xz)ay = x(za)y = x\phi_z(a)y$.
                 <br>Die Abbildung $\Psi: \Z(A) \to \End_{A \otimes_K A\op}(A)$ mit $\Psi(z) = \phi_z$ ist ein Ringisomorphismus. Damit ist $\End_{A \otimes_K A\op}(A) \cong \Z(A)$.</p>
                 </div>
             </details>
@@ -327,86 +398,204 @@
 
             <h4>Teil 1: Einfacher Modul</h4>
             <div class="interactive-step">
-                <p><b>Schritt 1:</b> Um zu zeigen, dass $V = D^{n \times 1}$ ein <span class="term" data-glossary-key="einfacher-modul">einfacher</span> $D^{n \times n}$-Modul ist, müssen Sie beweisen, dass die einzigen Untermoduln $\{0\}$ und $V$ selbst sind. Was müssen Sie für zwei beliebige Vektoren $v, w \in V$ mit $v \neq 0$ zeigen?</p>
+                <p><b>Schritt 1.1: Ziel des Beweises.</b> Was müssen wir zeigen, damit $V=D^{n \times 1}$ ein <span class="term" data-glossary-key="einfacher-modul">einfacher</span> $D^{n \times n}$-Modul ist? Formulieren Sie die Bedingung für einen beliebigen von Null verschiedenen Untermodul $U \subseteq V$.</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>Sie müssen zeigen, dass der von $v$ erzeugte Untermodul, $D^{n \times n} \cdot v$, ganz $V$ ist. Das bedeutet, für jedes $w \in V$ gibt es eine Matrix $A \in D^{n \times n}$ mit $Av=w$. Können Sie eine solche Matrix konstruieren? Denken Sie an die Elementarmatrizen $E_{ij}$, die nur an der Stelle $(i,j)$ eine 1 haben.</p>
+                    <p>Ein Modul ist einfach, wenn seine einzigen Untermoduln der Nullmodul und er selbst sind. Sie müssen also zeigen: Wenn $U$ ein Untermodul ist und $U \neq \{0\}$, dann muss $U=V$ sein.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Sei $V=D^{n \times 1}$ und $A=D^{n \times n}$. Die Modul-Aktion ist die Matrix-Vektor-Multiplikation. Ein <span class="term" data-glossary-key="teilmodul">Teilmodul</span> $U \subseteq V$ ist ein Untervektorraum, der unter der Multiplikation mit Matrizen aus $A$ abgeschlossen ist ($AU \subseteq U$).</p>
-                    <p>Sei $U \neq \{0\}$ ein <span class="term" data-glossary-key="teilmodul">Teilmodul</span>. Dann gibt es ein $v \in U$ mit $v \neq 0$. Da $v \neq 0$, hat $v$ mindestens einen Nicht-Null-Eintrag, sagen wir an der $j$-ten Position: $v_j \neq 0$. Sei $e_i$ der Standardbasisvektor mit einer 1 an der $i$-ten Stelle.</p>
-                    <p>Betrachten wir die Matrix $E_{ij}(d) \in A$, die nur an der Position $(i,j)$ den Eintrag $d \in D$ hat und sonst Nullen. Die Multiplikation $E_{ij}(d)v$ ergibt einen Vektor, dessen $i$-te Komponente $dv_j$ ist und alle anderen Komponenten Null sind. Es ist also der Vektor $d v_j e_i$.</p>
-                    <p>Da $D$ ein <span class="term" data-glossary-key="schiefkoerper">Schiefkörper</span> ist, hat $v_j$ ein Inverses $v_j^{-1}$. Wählen wir $d = v_j^{-1}$, so ist $E_{ij}(v_j^{-1}) \in A$ und das Produkt $E_{ij}(v_j^{-1})v = v_j^{-1}v_j e_i = e_i$. Da $v \in U$ und $U$ ein <span class="term" data-glossary-key="teilmodul">Teilmodul</span> ist, liegt auch $e_i$ in $U$. Dies gilt für ein beliebiges $i$, solange $v_j \neq 0$ ist.</p>
-                    <p>Da wir $e_i \in U$ für ein $i$ haben, können wir jeden anderen Basisvektor $e_k$ erzeugen, indem wir $E_{ki}(1)e_i = e_k$ berechnen. Somit enthält $U$ alle Basisvektoren $\{e_1, \dots, e_n\}$. Da $U$ ein Untervektorraum ist, muss $U = V$ sein.
-                    <br>Also sind $\{0\}$ und $V$ die einzigen Untermoduln, und $V$ ist ein <span class="term" data-glossary-key="einfacher-modul">einfacher Modul</span>.</p>
-                    <p><i>Skript-Bezug:</i> Das Konzept des <span class="term" data-glossary-key="einfacher-modul">einfachen Moduls</span> wird in <b>Definition 4.1 (S. 57)</b> und <b>Bemerkung 4.2 (S. 58)</b> eingeführt.</p>
+                    <p>Um zu beweisen, dass $V = D^{n \times 1}$ einfach ist, müssen wir zeigen, dass jeder Untermodul $U \subseteq V$ entweder $U = \{0\}$ oder $U = V$ ist. Wir nehmen also einen beliebigen Untermodul $U$ mit $U \neq \{0\}$ an und müssen zeigen, dass er ganz $V$ ist. Da $U \neq \{0\}$, gibt es mindestens einen Vektor $v \in U$ mit $v \neq 0$. Unser Ziel ist es zu zeigen, dass wir aus diesem einen Vektor $v$ den gesamten Raum $V$ durch die Modul-Aktion (Matrixmultiplikation) erzeugen können.</p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 1.2: Einen Basisvektor erzeugen.</b> Sei $v \in U$ ein von Null verschiedener Vektor. Wie können wir eine Matrix $A \in D^{n \times n}$ konstruieren, so dass das Produkt $Av$ ein Standard-Basisvektor $e_i$ ist?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Da $v \neq 0$, hat er mindestens einen Eintrag $v_j \neq 0$. Da $D$ ein <span class="term" data-glossary-key="schiefkoerper">Schiefkörper</span> ist, existiert $v_j^{-1}$. Denken Sie an die Elementarmatrizen $E_{ij}$, die nur an der Stelle $(i,j)$ einen Eintrag ungleich Null haben.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Sei $v = (v_1, \dots, v_n)^T \in U$ mit $v \neq 0$. Dann gibt es ein $j \in \{1, \dots, n\}$ mit $v_j \neq 0$. Sei $e_i$ der $i$-te Standardbasisvektor (eine 1 an Position $i$, sonst Nullen). Wir wollen $e_i$ erzeugen.
+                    <br>Betrachten wir die Matrix $A = E_{ij}(v_j^{-1})$. Diese Matrix hat den Eintrag $v_j^{-1}$ an der Position $(i,j)$ und sonst Nullen. Die Multiplikation $Av$ berechnet sich wie folgt: Die $k$-te Komponente von $Av$ ist $\sum_{l=1}^n A_{kl} v_l$.
+                    <ul>
+                        <li>Für $k \neq i$ ist die $k$-te Zeile von $A$ eine Nullzeile, also ist $(Av)_k = 0$.</li>
+                        <li>Für $k=i$ ist die $i$-te Zeile von $A$ $(0, \dots, 0, v_j^{-1}, 0, \dots, 0)$, mit $v_j^{-1}$ an der $j$-ten Stelle. Also ist $(Av)_i = v_j^{-1} v_j = 1$.</li>
+                    </ul>
+                    Das Ergebnis ist $Av = e_i$. Da $U$ ein Untermodul ist und $v \in U$, muss auch $Av = e_i$ in $U$ liegen. Wir haben also gezeigt, dass $U$ mindestens einen Basisvektor enthält.</p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 1.3: Alle Basisvektoren erzeugen.</b> Wir wissen nun, dass ein Basisvektor, sagen wir $e_i$, in $U$ liegt. Wie können wir daraus einen beliebigen anderen Basisvektor $e_k$ erzeugen?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Finden Sie eine Matrix $B \in D^{n \times n}$, die den Vektor $e_i$ auf den Vektor $e_k$ abbildet.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Wir haben $e_i \in U$. Sei $e_k$ ein beliebiger anderer (oder derselbe) Basisvektor. Betrachten wir die Matrix $B = E_{ki}(1)$. Diese Matrix hat eine 1 an der Position $(k,i)$ und sonst Nullen. Das Produkt $Be_i$ ist der Vektor $e_k$.
+                    <br>Da $U$ ein Untermodul ist und $e_i \in U$, muss auch $B e_i = e_k$ in $U$ liegen.
+                    <br>Dies gilt für alle $k=1, \dots, n$. Also enthält der Untermodul $U$ die gesamte Standardbasis $\{e_1, \dots, e_n\}$.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 1.4: Abschluss des Beweises.</b> Wir wissen, dass $U$ alle Basisvektoren enthält. Warum muss dann $U = V = D^{n \times 1}$ gelten?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Ein Untermodul ist insbesondere eine additive Untergruppe (also ein Untervektorraum über $D$).</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Da $U$ ein Untermodul ist, ist er abgeschlossen unter Addition und Skalarmultiplikation (mit Skalaren aus $D$). Weil $U$ die Basisvektoren $\{e_1, \dots, e_n\}$ enthält, muss er auch alle ihre Linearkombinationen $\sum_{i=1}^n d_i e_i$ mit $d_i \in D$ enthalten. Die Menge all dieser Linearkombinationen ist aber genau der gesamte Raum $D^{n \times 1}$.
+                    <br>Somit ist $U=V$. Da dies für jeden von Null verschiedenen Untermodul $U$ gilt, ist $V=D^{n \times 1}$ ein einfacher Modul.</p>
                 </details>
             </div>
 
             <h4>Teil 2: Entgegengesetzte Ringe</h4>
              <div class="interactive-step">
-                <p><b>Schritt 2:</b> Sie sollen eine Isomorphie von Ringen $D^{n \times n} \cong ((D\op)^{n \times n})\op$ zeigen. Was ist die Definition der Multiplikation in einem <span class="term" data-glossary-key="opposite-ring">entgegengesetzten Ring</span> $R\op$?</p>
+                <p><b>Schritt 2.1: Ein allgemeinerer Satz.</b> Die Aussage ist ein Spezialfall eines allgemeineren Satzes. Betrachten wir die Abbildung $\phi: (R^{n \times n})\op \to (R\op)^{n \times n}$ gegeben durch die Transposition, $\phi(A) = A^T$, für einen beliebigen Ring $R$. Was müssen wir zeigen, damit $\phi$ ein Ringisomorphismus ist?</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>In $R\op$ ist die Multiplikation definiert als $a \star b = ba$. Die Transposition ist ein klassischer Kandidat für einen Anti-Isomorphismus. Versuchen Sie zu zeigen, dass $A \mapsto A^T$ ein Isomorphismus von $((D\op)^{n \times n})\op$ nach $D^{n \times n}$ ist.</p>
+                    <p>Wir müssen zeigen, dass $\phi$ die Ringmultiplikation respektiert. Die Multiplikation in $(R^{n \times n})\op$ ist $A \star B = BA$. Die Multiplikation in $(R\op)^{n \times n}$ ist die normale Matrixmultiplikation, bei der die Einträge mit der umgedrehten Multiplikation von $R\op$ multipliziert werden. Wir müssen also $\phi(A \star B) = \phi(A) \cdot \phi(B)$ zeigen.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Wir verwenden den allgemeinen Satz, dass für jeden <span class="term" data-glossary-key="ring">Ring</span> $R$ gilt: $(R^{n \times n})\op \cong (R\op)^{n \times n}$. Der <span class="term" data-glossary-key="isomorphismus">Isomorphismus</span> wird durch die Transposition $A \mapsto A^T$ gegeben.
-                    <br>Sei $\phi: (R^{n \times n})\op \to (R\op)^{n \times n}$ mit $\phi(A) = A^T$.
-                    Die Multiplikation in $(R^{n \times n})\op$ ist $A \star B = BA$.
-                    $$ \phi(A \star B) = \phi(BA) = (BA)^T = A^T B^T $$
-                    Die Multiplikation in $(R\op)^{n \times n}$ ist die Standard-Matrixmultiplikation, aber die Einträge werden in $R\op$ multipliziert:
-                    $$ (\phi(A)\phi(B))_{ik} = \sum_j (A^T)_{ij} \star (B^T)_{jk} = \sum_j a_{ji} \star b_{kj} = \sum_j b_{kj} a_{ji} = (BA)_{ki} = ((BA)^T)_{ik} $$
-                    Also ist $(\phi(A)\phi(B)) = (BA)^T$. Damit ist $\phi$ ein <span class="term" data-glossary-key="ring">Ring-Isomorphismus</span>.
-                    
-                    <p>Nun wenden wir diesen Satz zweimal an. Sei $R = D\op$. Dann ist $R\op = (D\op)\op = D$.
-                    $$ ((D\op)^{n \times n})\op \cong (D\op)\op)^{n \times n} \cong D^{n \times n} $$
-                    Dies zeigt die geforderte Isomorphie.</p>
+                    <p>Um zu zeigen, dass $\phi(A)=A^T$ ein Ringisomorphismus ist, müssen wir zeigen:
+                    <ol>
+                        <li>$\phi$ ist bijektiv (das ist klar, da jede Matrix eine eindeutige Transponierte hat).</li>
+                        <li>$\phi$ ist ein Homomorphismus abelscher Gruppen (d.h. $\phi(A+B) = \phi(A)+\phi(B)$), was aus $(A+B)^T = A^T+B^T$ folgt.</li>
+                        <li>$\phi$ erhält die multiplikative Struktur. Sei $\star$ die Multiplikation in $(R^{n \times n})\op$ und $\cdot$ die Multiplikation in $(R\op)^{n \times n}$. Wir müssen zeigen: $\phi(A \star B) = \phi(A) \cdot \phi(B)$.</li>
+                    </ol>
+                    Der entscheidende Punkt ist der dritte. In $(R^{n \times n})\op$ ist $A \star B = BA$. Also ist die linke Seite $\phi(A \star B) = \phi(BA) = (BA)^T$.
+                    Die rechte Seite ist das Matrixprodukt von $\phi(A)=A^T$ und $\phi(B)=B^T$ im Ring $(R\op)^{n \times n}$.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 2.2: Verifizierung der Multiplikation.</b> Rechnen Sie die rechte Seite $\phi(A) \cdot \phi(B) = A^T \cdot B^T$ im Detail aus und vergleichen Sie sie mit $(BA)^T$.</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Die $(i,k)$-te Komponente von $A^T \cdot B^T$ ist $\sum_j (A^T)_{ij} \odot (B^T)_{jk}$, wobei $\odot$ die Multiplikation in $R\op$ ist. Schreiben Sie dies mit der normalen Multiplikation von $R$ und vergleichen Sie es mit der $(i,k)$-ten Komponente von $(BA)^T$.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Wir berechnen die $(i,k)$-te Komponente des Produkts $A^T \cdot B^T$ in $(R\op)^{n \times n}$. Sei $\odot$ die Multiplikation in $R\op$, also $x \odot y = yx$.
+                    \begin{align*}
+                    (A^T \cdot B^T)_{ik} &= \sum_{j=1}^n (A^T)_{ij} \odot (B^T)_{jk} \\
+                    &= \sum_{j=1}^n a_{ji} \odot b_{kj}  \quad \text{(Definition der Transponierten)}\\
+                    &= \sum_{j=1}^n b_{kj} \cdot a_{ji} \quad \text{(Definition der Multiplikation in } R\op \text{)}\\
+                    &= (B \cdot A)_{ki} \quad \text{(Definition der Matrixmultiplikation in } R^{n \times n} \text{)} \\
+                    &= ((BA)^T)_{ik} \quad \text{(Definition der Transponierten)}
+                    \end{align*}
+                    Da die Komponenten für alle $i,k$ übereinstimmen, gilt $A^T \cdot B^T = (BA)^T$. Wir haben also $\phi(A \star B) = \phi(A) \cdot \phi(B)$ gezeigt. Damit ist $\phi$ ein Ringisomorphismus und es gilt $(R^{n \times n})\op \cong (R\op)^{n \times n}$.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 2.3: Anwendung auf den spezifischen Fall.</b> Wie folgt die Aussage der Aufgabe $D^{n \times n} \cong ((D\op)^{n \times n})\op$ aus dem allgemeinen Isomorphismus $(R^{n \times n})\op \cong (R\op)^{n \times n}$?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Wenden Sie den Isomorphismus auf den Ring $R = D\op$ an. Was ist $R\op$?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Wir wenden unseren allgemeinen Satz an. Sei der Ring $R = D\op$.
+                    <br>Dann ist $R\op = (D\op)\op = D$.
+                    <br>Nun setzen wir $R=D\op$ in den Isomorphismus $(R^{n \times n})\op \cong (R\op)^{n \times n}$ ein.
+                    <br>Die linke Seite wird zu $((D\op)^{n \times n})\op$.
+                    <br>Die rechte Seite wird zu $((D\op)\op)^{n \times n} = D^{n \times n}$.
+                    <br>Somit erhalten wir den gewünschten Isomorphismus: $D^{n \times n} \cong ((D\op)^{n \times n})\op$.</p>
                 </details>
             </div>
             
             <h4>Teil 3: Endomorphismenring von Matrizen</h4>
             <div class="interactive-step">
-                <p><b>Schritt 3:</b> Gesucht ist $\End_{K^{n \times n}}(K^{n \times m})$. Ein Element $\Phi$ dieses Rings ist eine $K$-lineare Abbildung $\Phi: K^{n \times m} \to K^{n \times m}$, die mit der Aktion von $K^{n \times n}$ kommutiert. Was bedeutet $\Phi(A \cdot X) = A \cdot \Phi(X)$ für alle $A \in K^{n \times n}$ und $X \in K^{n \times m}$?</p>
+                <p><b>Schritt 3.1: Die Endomorphismen-Bedingung.</b> Sei $\Phi \in \End_{K^{n \times n}}(K^{n \times m})$. Die Modul-Aktion ist die Linksmultiplikation. Schreiben Sie die Bedingung aus, die $\Phi$ erfüllen muss.</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>Die Aktion ist Linksmultiplikation: $\Phi(AX) = A\Phi(X)$. Überlegen Sie, was passiert, wenn Sie für $A$ die Elementarmatrizen $E_{ij}$ einsetzen.
-                    Eine andere Perspektive ist der <span class="term" data-glossary-key="doppelzentralisatorsatz">Doppelzentralisatorsatz</span>. Der Endomorphismenring ist der Zentralisator der Algebra $K^{n \times n}$ in $\End_K(K^{n \times m}) \cong K^{nm \times nm}$.</p>
+                    <p>Ein Endomorphismus kommutiert mit der Skalarmultiplikation. Hier sind die "Skalare" die Matrizen aus $A = K^{n \times n}$.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Sei $\Phi \in \End_{K^{n \times n}}(K^{n \times m})$. $\Phi$ ist eine $K$-lineare Abbildung von $K^{n \times m}$ nach $K^{n \times m}$, für die gilt: $\Phi(AX) = A\Phi(X)$ für alle $A \in K^{n \times n}$ und $X \in K^{n \times m}$.</p>
-                    <p>Wir können $\Phi$ selbst als eine $nm \times nm$ Matrix darstellen. Eine elegantere Methode ist, die Struktur von $K^{n \times m}$ auszunutzen. Wir können $K^{n \times m}$ als eine direkte Summe von $m$ Kopien von $K^{n \times 1}$ betrachten: $K^{n \times m} \cong (K^{n \times 1})^{\oplus m}$. Ein Endomorphismus von $(K^{n \times 1})^{\oplus m}$ kann als $m \times m$-Matrix von Homomorphismen von $K^{n \times 1}$ nach $K^{n \times 1}$ geschrieben werden.
-                    $$ \Phi = (\phi_{ij})_{i,j=1,\dots,m} \quad \text{mit} \quad \phi_{ij} \in \End_K(K^{n \times 1}) \cong K^{n \times n} $$
-                    Die Bedingung $\Phi(AX) = A\Phi(X)$ überträgt sich auf die Komponenten:
-                    $$ A \phi_{ij}(v) = \phi_{ij}(Av) \quad \text{für alle } v \in K^{n \times 1}, A \in K^{n \times n} $$
-                    Das bedeutet, dass jedes $\phi_{ij}$ ein Element von $\End_{K^{n \times n}}(K^{n \times 1})$ sein muss. Nach dem Satz von Schur (oder einer einfachen Berechnung) kommutieren mit der vollen Matrixalgebra $K^{n \times n}$ nur die Skalarmatrizen. D.h., $\phi_{ij} = c_{ij} \cdot I_n$ für einen Skalar $c_{ij} \in K$.
-                    </p><p>
-                    Somit ist $\Phi$ durch eine $m \times m$-Matrix $C=(c_{ij})$ von Skalaren aus $K$ bestimmt. Die Aktion von $\Phi$ auf $X \in K^{n \times m}$ ist dann genau die Rechtsmultiplikation mit dieser Matrix $C$: $\Phi(X) = XC$.
-                    <br>Jede Rechtsmultiplikation mit einer $m \times m$-Matrix $C$ kommutiert mit der Linksmultiplikation durch eine $n \times n$-Matrix $A$: $(AX)C = A(XC)$. Also ist jede solche Abbildung ein gültiger Endomorphismus.
-                    <br>Die Zuordnung $\Phi \mapsto C$ ist ein $K$-Algebren-Isomorphismus von $\End_{K^{n \times n}}(K^{n \times m})$ nach $K^{m \times m}$.</p>
+                    <p>$\Phi$ ist ein $K^{n \times n}$-Modul-Endomorphismus des Moduls $M=K^{n \times m}$. Das bedeutet, $\Phi$ ist eine $K$-lineare Abbildung $\Phi: K^{n \times m} \to K^{n \times m}$ und für alle "Skalare" $A \in K^{n \times n}$ und alle "Vektoren" $X \in K^{n \times m}$ gilt:
+                    $$ \Phi(A \cdot X) = A \cdot \Phi(X) $$
+                    Da die Aktion die Linksmultiplikation ist, lautet die Bedingung:
+                    $$ \Phi(AX) = A \Phi(X) $$</p>
                 </details>
             </div>
+            <div class="interactive-step">
+                <p><b>Schritt 3.2: Eine Vermutung für die Form von $\Phi$.</b> Versuchen wir, eine mögliche Form für solche Endomorphismen zu erraten. Welche einfache Operation auf der Matrix $X$ kommutiert immer mit der Linksmultiplikation durch $A$?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Was ist mit der Rechtsmultiplikation? Betrachten Sie $\Phi_C(X) = XC$ für eine feste Matrix $C \in K^{m \times m}$. Erfüllt diese Abbildung die Bedingung?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Sei $C \in K^{m \times m}$ eine feste Matrix und definieren wir die Abbildung $\Phi_C(X) = XC$. Prüfen wir die Endomorphismen-Bedingung:
+                    $$ \Phi_C(AX) = (AX)C $$
+                    $$ A \Phi_C(X) = A(XC) $$
+                    Wegen der Assoziativität der Matrixmultiplikation gilt $(AX)C = A(XC)$. Also ist jede Rechtsmultiplikation mit einer $m \times m$-Matrix ein gültiger Endomorphismus in $\End_{K^{n \times n}}(K^{n \times m})$.
+                    <br>Unser Ziel ist es nun zu zeigen, dass <i>jeder</i> Endomorphismus diese Form haben muss.</p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 3.3: Beweis, dass jeder Endomorphismus diese Form hat.</b> Sei $\Phi$ ein beliebiger Endomorphismus. Wie können wir die Matrix $C$ finden, so dass $\Phi(X) = XC$ für alle $X$ gilt?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Eine lineare Abbildung ist durch ihre Wirkung auf eine Basis bestimmt. Eine Basis für $K^{n \times m}$ sind die Matrizen $E_{ij}$, die nur an der Stelle $(i,j)$ eine 1 haben. Es ist aber einfacher, mit den Spaltenvektoren zu arbeiten. Sei $e_k \in K^{n \times 1}$ der $k$-te Standardbasisvektor und $f_j \in K^{m \times 1}$ der $j$-te Standardbasisvektor. Betrachten Sie die Matrizen $B_j = e_k f_j^T$, die nur an einer Stelle eine 1 haben. Oder einfacher: betrachten Sie die "Basis" von $K^{n \times m}$ bestehend aus den Matrizen $I_j$, die die $n \times n$ Identitätsmatrix in den Spalten $(j-1)n+1$ bis $jn$ haben und sonst Nullen (dies ist zu kompliziert).
+                    <br>Einfacherer Ansatz: Was ist $\Phi(I_n | 0 | \dots | 0)$? Finde heraus, wie $\Phi$ auf die $m$ "Block-Spalten" wirkt, die jeweils $n \times 1$ Vektoren sind.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>
+                    Sei $\Phi \in \End_{K^{n \times n}}(K^{n \times m})$. Betrachten wir die $j$-te Spalte einer Matrix $X \in K^{n \times m}$, die wir mit $x_j \in K^{n \times 1}$ bezeichnen. Sei $I_m$ die $m \times m$ Einheitsmatrix und $f_j \in K^m$ ihr $j$-ter Spaltenvektor. Dann ist $x_j = X f_j$.
+                    <br>Sei $\Phi_j$ die $j$-te Spalte von $\Phi(I_m)$, d.h. $\Phi_j = \Phi(I_m)f_j$. Definieren wir die Matrix $C \in K^{m \times m}$ als die Matrix mit den Spalten $\Phi_j$. Also $C = \Phi(I_m)$.
+                    <br>Nun betrachten wir eine beliebige Matrix $X \in K^{n \times m}$. Wir können $X$ als $X = I_n X$ schreiben, wobei $I_n \in K^{n \times n}$ die Einheitsmatrix ist.
+                    <br>Allerdings ist diese Darstellung nicht hilfreich. Ein besserer Weg ist, $X$ als eine Matrix zu sehen, deren Spalten $x_1, \dots, x_m$ sind. 
+                    <br>
+                    Betrachten wir die $j$-te kanonische Einbettungsmatrix $\iota_j: K^n \to K^{n \times m}$, die einen Vektor $v$ auf die Matrix $(0|\dots|0|v|0|\dots|0)$ mit $v$ in der $j$-ten Spalte abbildet. Jedes $X$ ist die Summe solcher Matrizen: $X = \sum_{j=1}^m \iota_j(x_j)$.
+                    <br>Die Abbildung $\Phi$ kommutiert mit jeder Matrix $A \in K^{n \times n}$. Da $K^{n \times 1}$ ein einfacher $K^{n \times n}$-Modul ist (Teil 1), besagt das Lemma von Schur, dass $\End_{K^{n \times n}}(K^{n \times 1}) \cong K$. Das heißt, jeder Homomorphismus von $K^{n \times 1}$ nach $K^{n \times 1}$, der mit allen $A$ kommutiert, muss die Multiplikation mit einem Skalar $c \in K$ sein.
+                    <br>Ein Homomorphismus $\Phi: (K^{n \times 1})^{\oplus m} \to (K^{n \times 1})^{\oplus m}$ kann als eine $m \times m$ Matrix von Homomorphismen $(\phi_{ij})_{i,j}$ geschrieben werden, wobei $\phi_{ij} \in \End_K(K^{n \times 1})$. Die Bedingung $\Phi(AX)=A\Phi(X)$ impliziert, dass jedes $\phi_{ij}$ mit allen $A \in K^{n \times n}$ kommutieren muss.
+                    <br>Also muss $\phi_{ij}$ die Multiplikation mit einem Skalar $c_{ij} \in K$ sein. Die Aktion von $\Phi$ auf eine Matrix $X$ mit Spalten $(x_1, \dots, x_m)$ ist dann: Die $i$-te Spalte des Ergebnisses ist $\sum_{j=1}^m \phi_{ij}(x_j) = \sum_{j=1}^m c_{ij}x_j$.
+                    <br>Dies ist genau die Definition der Matrix-Matrix-Multiplikation $XC$, wobei $C$ die Matrix $(c_{ij})$ ist.
+                    <br>Somit hat jeder Endomorphismus $\Phi$ die Form $\Phi_C(X)=XC$ für eine eindeutig bestimmte Matrix $C \in K^{m \times m}$.
+                    </p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 3.4: Der Isomorphismus der Algebren.</b> Zeigen Sie, dass die Abbildung $\Psi: K^{m \times m} \to \End_{K^{n \times n}}(K^{n \times m})$, gegeben durch $\Psi(C) = \Phi_C$, ein $K$-Algebren-Isomorphismus ist.</p>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Wir haben bereits gezeigt, dass $\Psi$ bijektiv ist (surjektiv in Schritt 3.3, injektiv ist klar, da $XC=0$ für alle $X$ nur für $C=0$ gilt). Wir müssen noch prüfen, ob es ein Algebren-Homomorphismus ist.
+                    <ul>
+                        <li><b>Additivität:</b> $\Psi(C_1+C_2)(X) = X(C_1+C_2) = XC_1 + XC_2 = \Psi(C_1)(X)+\Psi(C_2)(X)$. Stimmt.</li>
+                        <li><b>K-Linearität:</b> $\Psi(kC)(X) = X(kC) = k(XC) = k\Psi(C)(X)$. Stimmt.</li>
+                        <li><b>Multiplikativität:</b> Die "Multiplikation" im Endomorphismenring ist die Komposition.
+                        $$ (\Psi(C_1) \circ \Psi(C_2))(X) = \Psi(C_1)(\Psi(C_2)(X)) = \Psi(C_1)(XC_2) = (XC_2)C_1 = X(C_2C_1) $$
+                        Hoppla, ein Fehler! Die Komposition führt zur Multiplikation in umgekehrter Reihenfolge. $\Psi$ ist also ein <b>Anti-Isomorphismus</b> von $K^{m \times m}$ nach $\End_{K^{n \times n}}(K^{n \times m})$.
+                        <br>Um einen Isomorphismus zu erhalten, müssen wir den Endomorphismenring als Rechts-Modul über sich selbst betrachten oder die Definition des Isomorphismus anpassen. Typischerweise wird dies als Isomorphismus zu $(K^{m \times m})\op$ formuliert. Da $K$ ein Körper ist, ist $K^{m \times m} \cong (K^{m \times m})\op$ via Transposition. Also gibt es auch einen Isomorphismus $C \mapsto \Phi_{C^T}$.
+                        <br>Im Kontext dieser Aufgabe ist die Identifikation $\End_{K^{n \times n}}(K^{n \times m}) \cong K^{m \times m}$ als Algebren üblich und gemeint, auch wenn formal ein Anti-Isomorphismus vorliegt, den man durch Transposition "repariert". Wir halten fest: $\End_{K^{n \times n}}(K^{n \times m}) \cong K^{m \times m}$.
+                    </ul>
+                    </p>
+                </details>
+            </div>
+
 
             <h3>Zusammenfassung</h3>
             <p>
             <ol>
-                <li>Die Einfachheit von $D^{n \times 1}$ als $D^{n \times n}$-Modul folgt daraus, dass man mit geeigneten Matrizen (den Elementarmatrizen) jeden Basisvektor auf jeden anderen abbilden kann und somit jeder von Null verschiedene Untermodul den ganzen Raum erzeugt.</li>
-                <li>Die Isomorphie der entgegengesetzten Ringe ist eine algebraische Standard-Identität, die man durch Anwendung des Satzes $(R^{n \times n})\op \cong (R\op)^{n \times n}$ auf den Ring $R = D\op$ beweist.</li>
-                <li>Der Endomorphismenring wird bestimmt, indem man erkennt, dass die Endomorphismen mit der Linksmultiplikation durch *alle* $n \times n$-Matrizen kommutieren müssen. Dies erzwingt, dass die Endomorphismen selbst die Form einer Rechtsmultiplikation mit einer $m \times m$-Matrix haben müssen.</li>
+                <li>Die Einfachheit von $D^{n \times 1}$ als $D^{n \times n}$-Modul folgt daraus, dass man mit geeigneten Matrizen (den Elementarmatrizen) jeden Basisvektor auf jeden anderen abbilden kann. Dies zeigt die "Transitivität" der Aktion der Matrixalgebra auf den Basisvektoren, was wiederum impliziert, dass jeder von Null verschiedene Untermodul den ganzen Raum erzeugen muss.</li>
+                <li>Die Isomorphie der entgegengesetzten Ringe ist eine algebraische Standard-Identität. Man zeigt allgemein $(R^{n \times n})\op \cong (R\op)^{n \times n}$ via Transposition und wendet dies auf den Ring $R = D\op$ an.</li>
+                <li>Der Endomorphismenring wird bestimmt, indem man erkennt, dass die Endomorphismen mit der Linksmultiplikation durch *alle* $n \times n$-Matrizen kommutieren müssen. Dies ist eine sehr starke Bedingung. Mit dem Lemma von Schur (oder einer direkten Rechnung) folgert man, dass diese Endomorphismen genau die Rechtsmultiplikationen mit einer $m \times m$-Matrix sein müssen. Dies stellt eine (Anti-)Isomorphie zum Ring $K^{m \times m}$ her.</li>
             </ol>
             </p>
 
             <details>
                 <summary>Vollständige Gesamtlösung</summary>
                 <div class="solution-step">
-                <p><b>Zu 1:</b> Sei $U \subseteq D^{n \times 1}$ ein von Null verschiedener Untermodul. Sei $v \in U, v \neq 0$. Dann hat $v$ eine Komponente $v_j \neq 0$ für ein $j \in \{1, \dots, n\}$. Sei $e_i$ der $i$-te Standardbasisvektor. Für jedes $i \in \{1, \dots, n\}$ und jedes $d \in D$ sei $E_{ij}(d)$ die Matrix mit dem Eintrag $d$ an der Stelle $(i,j)$ und Nullen sonst. Dann ist $E_{ij}(d) \in D^{n \times n}$ und $E_{ij}(d)v = (d v_j) e_i$. Da $D$ ein Schiefkörper ist, können wir $d = v_j^{-1}$ wählen, womit $E_{ij}(v_j^{-1})v = e_i \in U$. Da dies für jedes $i$ möglich ist (indem man ein passendes $j$ wählt), enthält $U$ alle Basisvektoren $e_1, \dots, e_n$ und muss somit gleich $D^{n \times 1}$ sein. Also ist $D^{n \times 1}$ einfach.</p>
+                <p><b>Zu 1:</b> Sei $U \subseteq D^{n \times 1}$ ein von Null verschiedener Untermodul. Sei $v \in U, v \neq 0$. Dann hat $v$ eine Komponente $v_j \neq 0$ für ein $j \in \{1, \dots, n\}$. Sei $e_i$ der $i$-te Standardbasisvektor. Für jedes $i \in \{1, \dots, n\}$ und jedes $d \in D$ sei $E_{ij}(d)$ die Matrix mit dem Eintrag $d$ an der Stelle $(i,j)$ und Nullen sonst. Dann ist $E_{ij}(d) \in D^{n \times n}$ und $E_{ij}(d)v = (d v_j) e_i$. Da $D$ ein Schiefkörper ist, können wir $d = v_j^{-1}$ wählen, womit $E_{ij}(v_j^{-1})v = e_i \in U$. Da wir jeden Basisvektor $e_i$ so erzeugen können (indem man ein passendes $j$ wählt), enthält $U$ alle Basisvektoren $e_1, \dots, e_n$ und muss somit gleich $D^{n \times 1}$ sein. Also ist $D^{n \times 1}$ einfach.</p>
                 
                 <p><b>Zu 2:</b> Wir verwenden den Satz, dass für jeden Ring $R$ ein Isomorphismus $\phi: (R^{n \times n})\op \to (R\op)^{n \times n}$ via Transposition existiert. Wir wenden dies auf $R = D\op$ an. Dann ist $R\op = (D\op)\op = D$. Daraus folgt $((D\op)^{n \times n})\op \cong ((D\op)\op)^{n \times n} = D^{n \times n}$. Die Aussage ist also bewiesen.</p>
                 
-                <p><b>Zu 3:</b> Sei $\Phi \in \End_{K^{n \times n}}(K^{n \times m})$. $\Phi$ ist eine $K$-lineare Abbildung, die mit der Linksmultiplikation durch Matrizen $A \in K^{n \times n}$ kommutiert: $\Phi(AX) = A\Phi(X)$. Sei $X = (x_1 | \dots | x_m)$, wobei $x_j \in K^{n \times 1}$ die Spalten von $X$ sind. Dann ist $\Phi(X) = (\Phi(x_1) | \dots | \Phi(x_m))$ (wenn wir $\Phi$ spaltenweise anwenden). Sei $C \in K^{m \times m}$ die Matrix, deren Wirkung auf die Basis der Spaltenvektoren die Wirkung von $\Phi$ beschreibt. Dann ist $\Phi(X) = XC$. Die Kommutativitätsbedingung wird zu $(AX)C = A(XC)$, was aufgrund der Assoziativität der Matrixmultiplikation immer wahr ist. Die Menge der möglichen Matrizen $C$ bildet die Algebra $K^{m \times m}$. Die Abbildung $\Phi \mapsto C$ ist ein $K$-Algebren-Isomorphismus.
+                <p><b>Zu 3:</b> Sei $\Phi \in \End_{K^{n \times n}}(K^{n \times m})$. $\Phi$ ist eine $K$-lineare Abbildung, die mit der Linksmultiplikation durch Matrizen $A \in K^{n \times n}$ kommutiert: $\Phi(AX) = A\Phi(X)$. Wir zeigen, dass jede solche Abbildung die Form $\Phi(X)=XC$ für eine eindeutige Matrix $C \in K^{m \times m}$ hat. Umgekehrt ist jede solche Rechtsmultiplikation ein gültiger Endomorphismus, da $(AX)C=A(XC)$. Die Abbildung $\Psi: K^{m \times m} \to \End_{K^{n \times n}}(K^{n \times m})$, die $C$ auf die Rechtsmultiplikation mit $C$ abbildet, ist ein K-Algebren-Anti-Isomorphismus. Da $K^{m \times m} \cong (K^{m \times m})\op$ via Transposition, existiert auch ein Isomorphismus. Daher gilt $\End_{K^{n \times n}}(K^{n \times m}) \cong K^{m \times m}$ als Algebren.
                 </p>
                 </div>
             </details>
@@ -430,49 +619,96 @@
 
             <h4>Teil 1: Homomorphismen zwischen direkten Summen</h4>
             <div class="interactive-step">
-                <p><b>Schritt 1:</b> Wie ist ein Homomorphismus $\Phi: \bigoplus_{j=1}^r M_j \to \bigoplus_{i=1}^s N_i$ bestimmt? Nutzen Sie die universellen Eigenschaften der <span class="term" data-glossary-key="direkte-summe">direkten Summe</span> (Koprodukt) und des direkten Produkts (welches für endliche Summen mit der <span class="term" data-glossary-key="direkte-summe">direkten Summe</span> zusammenfällt).</p>
+                <p><b>Schritt 1.1: Die Abbildung von Homomorphismen zu Matrizen.</b> Wie können wir aus einem gegebenen Homomorphismus $\Phi: \bigoplus_{j=1}^r M_j \to \bigoplus_{i=1}^s N_i$ eine Matrix von Homomorphismen $(\phi_{ij})$ konstruieren?</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>Ein Homomorphismus aus einer <span class="term" data-glossary-key="direkte-summe">direkten Summe</span> ist durch seine Wirkung auf die Komponenten bestimmt. Verwenden Sie die kanonischen Injektionen $\iota_j: M_j \to \bigoplus M_k$. Ein Homomorphismus in eine <span class="term" data-glossary-key="direkte-summe">direkte Summe</span> ist durch die Komponenten-Homomorphismen bestimmt. Verwenden Sie die kanonischen Projektionen $\pi_i: \bigoplus N_k \to N_i$. Kombinieren Sie beides.</p>
+                    <p>Nutzen Sie die kanonischen Injektionen $\iota_k: M_k \to \bigoplus M_j$ und Projektionen $\pi_l: \bigoplus N_i \to N_l$. Ein Homomorphismus $\phi_{ij}: M_j \to N_i$ kann als "Weg" von der Komponente $M_j$ zur Komponente $N_i$ verstanden werden.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Sei $\mathbf{M} = \bigoplus_{j=1}^r M_j$ und $\mathbf{N} = \bigoplus_{i=1}^s N_i$. Sei $\Phi \in \Hom_A(\mathbf{M}, \mathbf{N})$.
-                    <br>Für jedes $j \in \{1, \dots, r\}$ gibt es eine kanonische Einbettung $\iota_j: M_j \to \mathbf{M}$.
-                    <br>Für jedes $i \in \{1, \dots, s\}$ gibt es eine kanonische Projektion $\pi_i: \mathbf{N} \to N_i$.
-                    </p><p>Wir können $\Phi$ zerlegen, indem wir diese Abbildungen verwenden. Für jedes Paar $(i,j)$ definieren wir einen Homomorphismus $\phi_{ij}: M_j \to N_i$ durch die Komposition:
-                    $$ \phi_{ij} = \pi_i \circ \Phi \circ \iota_j $$
-                    Dies gibt uns eine $s \times r$ Matrix von Homomorphismen $(\phi_{ij})$.</p>
-                    <p>Umgekehrt, sei uns eine solche Matrix $(\phi_{ij})$ gegeben. Wir können daraus einen Homomorphismus $\Phi: \mathbf{M} \to \mathbf{N}$ konstruieren. Ein Element $m \in \mathbf{M}$ ist von der Form $m = (m_1, \dots, m_r)$ mit $m_j \in M_j$. Die $i$-te Komponente des Bildes $\Phi(m)$ wird definiert als:
-                    $$ (\Phi(m))_i = \sum_{j=1}^r \phi_{ij}(m_j) $$
-                    Man kann leicht verifizieren, dass dies ein A-Modul-Homomorphismus ist. Die beiden Konstruktionen sind invers zueinander, was den Isomorphismus der abelschen Gruppen etabliert.</p>
+                    <p>Sei $\mathbf{M} = \bigoplus_{j=1}^r M_j$ und $\mathbf{N} = \bigoplus_{i=1}^s N_i$. Sei ein Homomorphismus $\Phi \in \Hom_A(\mathbf{M}, \mathbf{N})$ gegeben.
+                    <br>Für jedes $j \in \{1, \dots, r\}$ haben wir die kanonische Injektion $\iota_j: M_j \to \mathbf{M}$, die ein Element $m_j \in M_j$ auf das Tupel $(0, \dots, m_j, \dots, 0)$ abbildet.
+                    <br>Für jedes $i \in \{1, \dots, s\}$ haben wir die kanonische Projektion $\pi_i: \mathbf{N} \to N_i$, die ein Tupel $(n_1, \dots, n_s)$ auf seine $i$-te Komponente $n_i$ abbildet.
+                    <br>Wir definieren den Homomorphismus $\phi_{ij}: M_j \to N_i$ als die Komposition dieser Abbildungen mit $\Phi$:
+                    $$ \phi_{ij} := \pi_i \circ \Phi \circ \iota_j $$
+                    Indem wir dies für alle Paare $(i,j)$ tun, erhalten wir eine $s \times r$-Matrix $(\phi_{ij})$ von Homomorphismen, wobei $\phi_{ij} \in \Hom_A(M_j, N_i)$.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 1.2: Die Abbildung von Matrizen zu Homomorphismen.</b> Konstruieren Sie nun die Umkehrung: Wie bauen wir aus einer gegebenen $s \times r$-Matrix von Homomorphismen $(\phi_{ij})$ einen einzigen Homomorphismus $\Phi: \mathbf{M} \to \mathbf{N}$?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Ein Element $m \in \mathbf{M}$ ist ein Tupel $m=(m_1, \dots, m_r)$. Das Bild $\Phi(m)$ soll ein Tupel $(n_1, \dots, n_s) \in \mathbf{N}$ sein. Wie berechnet sich die $i$-te Komponente $n_i$ aus den $m_j$ und den $\phi_{ij}$?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Sei eine Matrix $(\phi_{ij})$ mit $\phi_{ij} \in \Hom_A(M_j, N_i)$ gegeben. Wir definieren einen Homomorphismus $\Phi: \mathbf{M} \to \mathbf{N}$ wie folgt.
+                    <br>Sei $m = (m_1, \dots, m_r) \in \mathbf{M}$ ein beliebiges Element. Das Bild $\Phi(m)$ ist ein Element in $\mathbf{N}$ und wird komponentenweise definiert. Die $i$-te Komponente von $\Phi(m)$ ist die Summe der Bilder aller $m_j$ unter den entsprechenden Homomorphismen, die in $N_i$ landen:
+                    $$ (\Phi(m))_i := \sum_{j=1}^r \phi_{ij}(m_j) $$
+                    Diese Definition ergibt eine wohldefinierte Abbildung $\Phi$. Da alle $\phi_{ij}$ und die Addition in den Moduln A-linear sind, ist auch $\Phi$ ein A-Modul-Homomorphismus.</p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 1.3: Überprüfung des Isomorphismus.</b> Überlegen Sie, warum die beiden in Schritt 1.1 und 1.2 konstruierten Abbildungen invers zueinander sind und einen Isomorphismus abelscher Gruppen darstellen.</p>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Nennen wir die Abbildung aus 1.1 $\Psi: \Hom_A(\mathbf{M}, \mathbf{N}) \to \{(\phi_{ij})\}$ und die aus 1.2 $\Lambda: \{(\phi_{ij})\} \to \Hom_A(\mathbf{M}, \mathbf{N})$.
+                    <br>Starten wir mit $\Phi$ und wenden $\Psi$ und dann $\Lambda$ an: $\Lambda(\Psi(\Phi))$. Das Ergebnis ist ein Homomorphismus $\Phi'$, dessen $i$-te Komponente $(\Phi'(m))_i = \sum_j (\pi_i \circ \Phi \circ \iota_j)(m_j)$ ist. Da $m = \sum_j \iota_j(m_j)$ und $\Phi$ linear ist, ist $(\Phi(m))_i = \pi_i(\Phi(\sum_j \iota_j(m_j))) = \sum_j \pi_i(\Phi(\iota_j(m_j)))$. Dies ist genau die Definition von $\Phi'$, also ist $\Phi'=\Phi$.
+                    <br>Starten wir mit einer Matrix $(\phi_{ij})$ und wenden $\Lambda$ und dann $\Psi$ an: $\Psi(\Lambda((\phi_{ij})))$. Das Ergebnis ist eine Matrix, deren $(i,j)$-te Komponente $\pi_i \circ (\Lambda((\phi_{ij}))) \circ \iota_j$ ist. Wendet man dies auf $m_j \in M_j$ an, so bildet $\iota_j$ es auf $(0,..,m_j,..,0)$ ab. $\Lambda$ bildet dies auf ein Tupel ab, dessen $k$-te Komponente $\sum_l \phi_{kl}((0,..,m_j,..,0)_l) = \phi_{kj}(m_j)$ ist. Die Projektion $\pi_i$ wählt davon die $i$-te Komponente aus, was $\phi_{ij}(m_j)$ ergibt. Also ist die resultierende Matrixkomponente wieder $\phi_{ij}$.
+                    <br>Die Abbildungen sind invers zueinander und offensichtlich Homomorphismen von abelschen Gruppen (bzgl. Addition), also liegt ein Isomorphismus vor.</p>
                 </details>
             </div>
 
             <h4>Teil 2: Endomorphismenring von $M^r$</h4>
             <div class="interactive-step">
-                <p><b>Schritt 2:</b> Dies ist ein Spezialfall von Teil 1. Setzen Sie $M_j = M$ und $N_i = M$ für alle $i,j$. Was müssen Sie zusätzlich zeigen, damit der Isomorphismus auch ein <span class="term" data-glossary-key="ring">Ring-Isomorphismus</span> ist?</p>
+                <p><b>Schritt 2.1: Spezialisierung von Teil 1.</b> Teil 2 ist ein Spezialfall von Teil 1. Welche Setzungen müssen wir vornehmen? Was wissen wir dann bereits?</p>
                 <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Wir setzen $M_j = M$ für alle $j=1,\dots,r$ und $N_i = M$ für alle $i=1,\dots,s$. Außerdem setzen wir $s=r$.
+                    <br>Der Modul $\bigoplus_{j=1}^r M_j$ wird zu $M^r$.
+                    <br>Die Menge der Homomorphismen wird zu $\Hom_A(M^r, M^r) = \End_A(M^r)$.
+                    <br>Die Matrix der Homomorphismen wird zu einer $r \times r$-Matrix, deren Einträge $\phi_{ij} \in \Hom_A(M,M) = \End_A(M)$ sind.
+                    <br>Aus Teil 1 wissen wir also bereits, dass ein Isomorphismus abelscher Gruppen existiert:
+                    $$ \End_A(M^r) \cong (\End_A(M))^{r \times r} $$
+                    Wir müssen nun zusätzlich zeigen, dass dieser Isomorphismus auch die Ringmultiplikation respektiert.</p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 2.2: Vergleich der Multiplikationen.</b> Seien $\Phi, \Psi \in \End_A(M^r)$ zwei Endomorphismen, denen die Matrizen $F = (\phi_{ij})$ und $G = (\psi_{ij})$ aus $(\End_A(M))^{r \times r}$ zugeordnet sind. Was ist die Multiplikation im Ring $\End_A(M^r)$ und was im Ring $(\End_A(M))^{r \times r}$?</p>
+                 <details>
                     <summary>Hinweis</summary>
-                    <p>Sie müssen zeigen, dass die Komposition von Endomorphismen auf $M^r$ der Matrixmultiplikation der entsprechenden Matrizen von Endomorphismen in $(\End_A(M))^{r \times r}$ entspricht. Schreiben Sie die Komposition $\Psi \circ \Phi$ aus und vergleichen Sie sie mit dem Produkt der Matrizen $(\psi_{ik}) \cdot (\phi_{kj})$.</p>
+                    <p>Die Multiplikation im Endomorphismenring ist die Komposition von Abbildungen. Die Multiplikation im Matrixring ist die übliche Matrixmultiplikation.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Aus Teil 1 wissen wir, dass $\End_A(M^r) \cong (\Hom_A(M,M))^{s \times r}$ als abelsche Gruppen, wobei hier $s=r$. Also $\End_A(M^r) \cong (\End_A(M))^{r \times r}$. Wir müssen noch zeigen, dass dies ein <span class="term" data-glossary-key="ring">Ring-Isomorphismus</span> ist. Seien $\Phi, \Psi \in \End_A(M^r)$ mit den zugehörigen Matrizen $(\phi_{ij})$ und $(\psi_{ij})$. Wir betrachten die Komposition $\Psi \circ \Phi$.
-                    <br>Sei $m=(m_1, \dots, m_r) \in M^r$. Dann ist $\Phi(m) = y = (y_1, \dots, y_r)$ mit $y_k = \sum_{j=1}^r \phi_{kj}(m_j)$.
-                    <br>Nun wenden wir $\Psi$ an: $(\Psi(y))_i = \sum_{k=1}^r \psi_{ik}(y_k)$.
-                    <br>Setzen wir $y_k$ ein:
-                    $$ (\Psi \circ \Phi (m))_i = \sum_{k=1}^r \psi_{ik}\left(\sum_{j=1}^r \phi_{kj}(m_j)\right) = \sum_{k=1}^r \sum_{j=1}^r (\psi_{ik} \circ \phi_{kj})(m_j) $$
-                    Wir können die Summen vertauschen:
-                    $$ (\Psi \circ \Phi (m))_i = \sum_{j=1}^r \left(\sum_{k=1}^r \psi_{ik} \circ \phi_{kj}\right)(m_j) $$
-                    Dies zeigt, dass die $(i,j)$-Komponente des Endomorphismus $\Psi \circ \Phi$ genau $\sum_{k=1}^r \psi_{ik} \circ \phi_{kj}$ ist. Dies ist exakt die Definition der Matrixmultiplikation für die Matrizen $(\psi_{ij})$ und $(\phi_{ij})$. Die Komposition von Endomorphismen entspricht also der Matrixmultiplikation. Daher ist der Isomorphismus ein Ring-Isomorphismus.
-                    </p>
-                    <p><i>Skript-Bezug:</i> Das Ergebnis dieser Aufgabe wird im Skript bei <b>Aufgabe 34</b> selbst formuliert und ist eine grundlegende Eigenschaft von <span class="term" data-glossary-key="hom-funktor">Hom-Funktoren</span> in <span class="term" data-glossary-key="abelsche-kategorie">abelschen Kategorien</span>.</p>
+                    <p>Die Multiplikation in $\End_A(M^r)$ ist die Komposition von Abbildungen. Dem Produkt $\Psi \circ \Phi$ soll die Produktmatrix $G \cdot F$ entsprechen.
+                    <br>Die Multiplikation im Matrixring $(\End_A(M))^{r \times r}$ ist die Standard-Matrixmultiplikation. Die $(i,k)$-te Komponente des Produkts $G \cdot F$ ist definiert als:
+                    $$ (G \cdot F)_{ik} = \sum_{j=1}^r \psi_{ij} \circ \phi_{jk} $$
+                    Wir müssen zeigen, dass dies genau die Komponente ist, die dem Endomorphismus $\Psi \circ \Phi$ zugeordnet wird.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 2.3: Berechnung der Komposition.</b> Berechnen Sie die $(i,k)$-te Komponente des zu $\Psi \circ \Phi$ gehörenden Homomorphismus. </p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Die $(i,k)$-te Komponente ist $\pi_i \circ \Psi \circ \Phi \circ \iota_k$. Fügen Sie an einer geeigneten Stelle die Identität in der Form $\mathrm{id}_{M^r} = \sum_{j=1}^r \iota_j \circ \pi_j$ ein.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Die $(i,k)$-te Komponente von $\Psi \circ \Phi$ ist der Homomorphismus $(\Psi \circ \Phi)_{ik} = \pi_i \circ \Psi \circ \Phi \circ \iota_k$.
+                    Wir fügen die Identität auf $M^r$ zwischen $\Psi$ und $\Phi$ ein:
+                    \begin{align*}
+                    (\Psi \circ \Phi)_{ik} &= \pi_i \circ \Psi \circ \left(\sum_{j=1}^r \iota_j \circ \pi_j\right) \circ \Phi \circ \iota_k \\
+                    &= \sum_{j=1}^r (\pi_i \circ \Psi \circ \iota_j) \circ (\pi_j \circ \Phi \circ \iota_k) \quad \text{(da } \circ \text{ bilinear ist)} \\
+                    &= \sum_{j=1}^r \psi_{ij} \circ \phi_{jk}
+                    \end{align*}
+                    In der letzten Zeile haben wir die Definition der Matrixkomponenten aus Schritt 1.1 verwendet: $\psi_{ij} = \pi_i \circ \Psi \circ \iota_j$ und $\phi_{jk} = \pi_j \circ \Phi \circ \iota_k$.
+                    <br>Das Ergebnis ist genau die Formel für die Matrixmultiplikation aus Schritt 2.2. Also wird die Komposition von Endomorphismen auf die Multiplikation ihrer zugehörigen Matrizen abgebildet. Damit ist der Isomorphismus ein Ring-Isomorphismus.</p>
                 </details>
             </div>
             
             <h3>Zusammenfassung</h3>
-            <p>Die Struktur von Homomorphismen zwischen <span class="term" data-glossary-key="direkte-summe">direkten Summen</span> von Moduln lässt sich elegant durch eine Matrix von Homomorphismen zwischen den Komponenten beschreiben. Ein Homomorphismus $\Phi: \bigoplus M_j \to \bigoplus N_i$ wird durch seine Komponenten $\phi_{ij}: M_j \to N_i$ vollständig bestimmt. Wenn die Moduln gleich sind (Endomorphismen von $M^r$), entspricht die Komposition von Abbildungen genau der Multiplikation dieser "Homomorphismen-Matrizen", was einen Ringisomorphismus $\End_A(M^r) \cong (\End_A(M))^{r \times r}$ etabliert.</p>
+            <p>Die Struktur von Homomorphismen zwischen <span class="term" data-glossary-key="direkte-summe">direkten Summen</span> von Moduln lässt sich elegant durch eine Matrix von Homomorphismen zwischen den Komponenten beschreiben. Ein Homomorphismus $\Phi: \bigoplus M_j \to \bigoplus N_i$ wird durch seine Komponenten $\phi_{ij}: M_j \to N_i$ vollständig bestimmt. Dieser Zusammenhang wird durch die universellen Eigenschaften (Injektionen und Projektionen) der direkten Summe formalisiert. Wenn die Moduln gleich sind (Endomorphismen von $M^r$), entspricht die Komposition von Abbildungen genau der Multiplikation dieser "Homomorphismen-Matrizen", was einen Ringisomorphismus $\End_A(M^r) \cong (\End_A(M))^{r \times r}$ etabliert. Dies ist ein Eckpfeiler, der die abstrakte Modultheorie mit der konkreten Matrizenrechnung verbindet.</p>
 
             <details>
                 <summary>Vollständige Gesamtlösung</summary>
@@ -515,63 +751,71 @@
 
             <h3>Interaktiver Lösungsweg</h3>
 
-            <p>Wir zeigen die Äquivalenzen durch den Ringschluss $(1) \Rightarrow (3) \Rightarrow (2) \Rightarrow (1)$.</p>
+            <p>Wir zeigen die Äquivalenzen durch den Ringschluss $(1) \Leftrightarrow (3)$, dann $(3) \Rightarrow (2)$ und schließlich $(2) \Rightarrow (3)$.</p>
 
             <div class="interactive-step">
-                <p><b>Schritt 1: $(1) \Leftrightarrow (3)$</b>. Zeigen Sie, dass die Definition eines artinschen Moduls direkt äquivalent zur Bedingung (3) ist.</p>
+                <p><b>Schritt 1: $(1) \Leftrightarrow (3)$</b>. Was ist die Definition eines artinschen Moduls?</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>Die Definition von "Artinsch" ist oft direkt als die absteigende Kettenbedingung (DCC) gegeben. Was bedeutet "wird stationär" im Kontext einer Kette?</p>
+                    <p>Vergleichen Sie die Aussage (1) mit der Aussage (3). Oft wird (3) als die Definition von (1) verwendet.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Ein Modul $M$ heißt <span class="term" data-glossary-key="artinsch">artinsch</span>, wenn jede absteigende Kette von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span> $M_1 \supseteq M_2 \supseteq \dots$ stationär wird. Die Aussage (3) ist genau diese Definition. Daher ist $(1) \Leftrightarrow (3)$ per Definition wahr.
-                    <br><i>Skript-Bezug:</i> Im Skript wird die Äquivalenz in <b>Satz 4.27 (S. 63)</b> zusammengefasst. Die Definition von Artinsch ist "jeder Faktormodul ist endlich koerzeugbar", was dann äquivalent zur DCC (Aussage 3) gezeigt wird.</p>
+                    <p>Ein Modul $M$ heißt <span class="term" data-glossary-key="artinsch">artinsch</span>, wenn er die absteigende Kettenbedingung (DCC) für <span class="term" data-glossary-key="teilmodul">Teilmoduln</span> erfüllt. Die Aussage (3) ist die präzise Formulierung der absteigenden Kettenbedingung. Daher sind (1) und (3) per Definition äquivalent. Manchmal wird artinsch anders definiert (z.B. über endlich koerzeugte Faktormoduln), aber es wird dann als einer der ersten Sätze die Äquivalenz zur DCC gezeigt.
+                    <br><i>Skript-Bezug:</i> Im Skript wird die Äquivalenz in <b>Satz 4.27 (S. 63)</b> zusammengefasst.</p>
                 </details>
             </div>
 
             <div class="interactive-step">
-                <p><b>Schritt 2: $(3) \Rightarrow (2)$</b>. Angenommen, jede absteigende Kette wird stationär (DCC). Wie beweisen Sie nun, dass jede nichtleere Menge $\mathcal{S}$ von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span> ein minimales Element hat?</p>
+                <p><b>Schritt 2: $(3) \Rightarrow (2)$</b>. Wir nehmen an, die DCC gilt (Aussage 3), und wollen zeigen, dass jede nichtleere Menge $\mathcal{S}$ von Teilmoduln ein minimales Element hat (Aussage 2). Wie kann man das durch einen Widerspruchsbeweis zeigen?</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>Führen Sie einen Widerspruchsbeweis. Nehmen Sie an, $\mathcal{S}$ hat kein minimales Element. Was können Sie dann aus dieser Annahme konstruieren?</p>
+                    <p>Nehmen Sie an, es gäbe eine Menge $\mathcal{S}$ ohne minimales Element. Was können Sie dann tun? Wenn ein Element nicht minimal ist, was bedeutet das? Können Sie daraus eine Kette konstruieren?</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Angenommen, es gibt eine nichtleere Menge $\mathcal{S}$ von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span>, die kein minimales Element besitzt. Da $\mathcal{S}$ nicht leer ist, können wir ein Element $M_1 \in \mathcal{S}$ wählen. Da $M_1$ nicht minimal ist, gibt es ein $M_2 \in \mathcal{S}$ mit $M_2 \subsetneq M_1$. Da $M_2$ nicht minimal ist, gibt es ein $M_3 \in \mathcal{S}$ mit $M_3 \subsetneq M_2$. Diesen Prozess können wir unendlich fortsetzen und erhalten so eine unendliche, echt absteigende Kette von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span>:
+                    <p>Wir führen einen Widerspruchsbeweis. Angenommen, es gibt eine nichtleere Menge $\mathcal{S}$ von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span>, die kein minimales Element besitzt.
+                    <ol>
+                        <li>Da $\mathcal{S}$ nicht leer ist, können wir ein Element $M_1 \in \mathcal{S}$ wählen.</li>
+                        <li>Da $M_1$ laut Annahme kein minimales Element in $\mathcal{S}$ ist, muss es ein anderes Element in $\mathcal{S}$ geben, das echt in $M_1$ enthalten ist. Nennen wir es $M_2$. Also: $M_2 \in \mathcal{S}$ und $M_2 \subsetneq M_1$.</li>
+                        <li>Da $M_2$ ebenfalls kein minimales Element ist, muss es ein $M_3 \in \mathcal{S}$ mit $M_3 \subsetneq M_2$ geben.</li>
+                    </ol>
+                    Indem wir diesen Prozess fortsetzen (was dank des Auswahlaxioms möglich ist), konstruieren wir eine unendliche, echt absteigende Kette von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span>:
                     $$ M_1 \supsetneq M_2 \supsetneq M_3 \supsetneq \dots $$
-                    Diese Kette wird nicht stationär. Dies ist ein Widerspruch zur Annahme (3), der absteigenden Kettenbedingung. Also muss jede nichtleere Menge von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span> ein minimales Element besitzen.</p>
+                    Eine solche Kette wird niemals stationär. Dies ist ein direkter Widerspruch zur Annahme (3), der absteigenden Kettenbedingung. Unsere Annahme, dass $\mathcal{S}$ kein minimales Element hat, muss also falsch gewesen sein.</p>
                 </details>
             </div>
 
             <div class="interactive-step">
-                <p><b>Schritt 3: $(2) \Rightarrow (1)$</b>. Angenommen, jede nichtleere Menge von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span> hat ein minimales Element. Wie zeigen Sie, dass $M$ artinsch ist (d.h. die DCC erfüllt)?</p>
+                <p><b>Schritt 3: $(2) \Rightarrow (3)$</b>. Nun nehmen wir an, dass jede nichtleere Menge von Teilmoduln ein minimales Element besitzt (Aussage 2). Wir wollen zeigen, dass die DCC gilt (Aussage 3). Betrachten Sie eine beliebige absteigende Kette $M_1 \supseteq M_2 \supseteq \dots$. Wie können wir Annahme (2) hier anwenden?</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>Betrachten Sie eine beliebige absteigende Kette $M_1 \supseteq M_2 \supseteq \dots$. Bilden Sie die Menge $\mathcal{S} = \{M_i \mid i \in \mathbb{Z}_{\ge 1}\}$ und wenden Sie die Annahme (2) auf diese Menge an.</p>
+                    <p>Die Kette selbst bildet eine Menge von Teilmoduln. Wenden Sie die Annahme (2) auf die Menge $\mathcal{S} = \{M_1, M_2, M_3, \dots\}$ an.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Sei $M_1 \supseteq M_2 \supseteq M_3 \supseteq \dots$ eine absteigende Kette von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span>. Betrachten wir die Menge $\mathcal{S} = \{M_i \mid i \ge 1\}$. Nach Annahme (2) besitzt diese nichtleere Menge ein minimales Element. Sei dieses minimale Element $M_m$ für ein $m \in \mathbb{Z}_{\ge 1}$.
-                    <br>Per Definition des minimalen Elements gibt es kein Element in $\mathcal{S}$, das echt in $M_m$ enthalten ist. Für jedes $i > m$ gilt $M_i \in \mathcal{S}$ und $M_i \subseteq M_m$. Da $M_m$ minimal ist, kann die Inklusion nicht echt sein. Es muss also $M_i = M_m$ für alle $i > m$ gelten.
-                    <br>Das bedeutet, die Kette wird ab dem Index $m$ stationär. Da dies für jede absteigende Kette gilt, erfüllt $M$ die absteigende Kettenbedingung (DCC) und ist somit <span class="term" data-glossary-key="artinsch">artinsch</span>.</p>
+                    <p>Sei $M_1 \supseteq M_2 \supseteq M_3 \supseteq \dots$ eine absteigende Kette von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span>. Wir betrachten die Menge der Moduln in dieser Kette: $\mathcal{S} = \{M_i \mid i \in \mathbb{Z}_{\ge 1}\}$.
+                    <br>Da die Kette mindestens $M_1$ enthält, ist $\mathcal{S}$ nicht leer. Nach Annahme (2) muss $\mathcal{S}$ ein minimales Element besitzen. Nennen wir dieses minimale Element $M_m$ für einen Index $m \in \mathbb{Z}_{\ge 1}$.
+                    <br>Was bedeutet es, dass $M_m$ minimal in $\mathcal{S}$ ist? Es bedeutet, es gibt kein Element $M_k \in \mathcal{S}$, für das $M_k \subsetneq M_m$ gilt.
+                    <br>Betrachten wir nun die Kette für Indizes $i > m$. Wir wissen, dass $M_i \subseteq M_m$. Da auch $M_i \in \mathcal{S}$ ist, kann die Inklusion wegen der Minimalität von $M_m$ nicht echt sein. Es muss also $M_i = M_m$ gelten für alle $i \ge m$.
+                    <br>Das bedeutet, die Kette wird ab dem Index $m$ stationär. Da dies für jede beliebige absteigende Kette gilt, erfüllt $M$ die DCC (Aussage 3).</p>
                 </details>
             </div>
             
             <h3>Zusammenfassung</h3>
-            <p>Die Äquivalenz der drei Bedingungen wird durch einen logischen Ringschluss gezeigt. Die Definition von "Artinsch" ist die absteigende Kettenbedingung (DCC). Die Existenz minimaler Elemente in jeder Familie von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span> ist eine mächtige Konsequenz der DCC, die man durch einen Widerspruchsbeweis zeigt (Annahme "kein minimales Element" führt zu einer unendlichen Kette). Umgekehrt impliziert die Existenz minimaler Elemente sofort, dass jede absteigende Kette ein minimales Element haben muss und daher stationär werden muss.</p>
+            <p>Die Äquivalenz der drei Bedingungen wird durch einen logischen Ringschluss gezeigt. Die Aussage (1) und (3) sind typischerweise per Definition äquivalent. Die Implikation (3) $\Rightarrow$ (2) ist ein klassischer Beweis durch Widerspruch, der zeigt, dass die Unfähigkeit, eine unendliche Kette zu bilden, die Existenz von minimalen Elementen erzwingt. Umgekehrt, (2) $\Rightarrow$ (3), ist ein direkter Beweis: Die Menge der Moduln in einer Kette muss ein minimales Element haben, was genau der Punkt ist, an dem die Kette stationär werden muss. Diese Charakterisierungen sind nicht nur für artinsche, sondern auch (dual) für noethersche Moduln von zentraler Bedeutung.</p>
 
             <details>
                 <summary>Vollständige Gesamtlösung</summary>
                 <div class="solution-step">
-                    <p>Wir zeigen die Äquivalenz durch den Zyklus $(1) \Rightarrow (3) \Rightarrow (2) \Rightarrow (1)$.
+                    <p>Wir zeigen die Äquivalenz durch den Zyklus $(1) \Leftrightarrow (3)$, $(3) \Rightarrow (2)$ und $(2) \Rightarrow (3)$.
                     <br>Im Skript wird die Äquivalenz als <b>Satz 4.27 (S. 63)</b> behandelt.
                     </p>
-                    <p><b>$(1) \Rightarrow (3)$</b>: Ein <span class="term" data-glossary-key="a-modul">Modul</span> $M$ ist <span class="term" data-glossary-key="artinsch">artinsch</span>, wenn er die absteigende Kettenbedingung (DCC) erfüllt. Aussage (3) ist die explizite Formulierung der DCC. Also ist diese Implikation per Definition wahr.</p>
+                    <p><b>$(1) \Leftrightarrow (3)$</b>: Ein <span class="term" data-glossary-key="a-modul">Modul</span> $M$ ist <span class="term" data-glossary-key="artinsch">artinsch</span>, wenn er die absteigende Kettenbedingung (DCC) erfüllt. Aussage (3) ist die explizite Formulierung der DCC. Also ist diese Implikation per Definition wahr oder folgt aus den ersten Sätzen über artinsche Moduln.</p>
                     
                     <p><b>$(3) \Rightarrow (2)$</b>: Sei (3) wahr. Sei $\mathcal{S}$ eine nichtleere Menge von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span> von $M$. Angenommen, $\mathcal{S}$ hat kein minimales Element. Da $\mathcal{S}$ nicht leer ist, wählen wir ein $M_1 \in \mathcal{S}$. Da $M_1$ nicht minimal ist, existiert ein $M_2 \in \mathcal{S}$ mit $M_2 \subsetneq M_1$. Da $M_2$ nicht minimal ist, existiert ein $M_3 \in \mathcal{S}$ mit $M_3 \subsetneq M_2$, und so weiter. Dies konstruiert eine unendliche, echt absteigende Kette $M_1 \supsetneq M_2 \supsetneq M_3 \supsetneq \dots$. Diese Kette wird nicht stationär, was ein Widerspruch zu (3) ist. Also muss unsere Annahme falsch gewesen sein, und $\mathcal{S}$ muss ein minimales Element besitzen.</p>
                     
-                    <p><b>$(2) \Rightarrow (1)$</b>: Sei (2) wahr. Wir müssen zeigen, dass $M$ <span class="term" data-glossary-key="artinsch">artinsch</span> ist, d.h. die DCC erfüllt. Sei $M_1 \supseteq M_2 \supseteq M_3 \supseteq \dots$ eine beliebige absteigende Kette von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span>. Die Menge $\mathcal{S} = \{M_i \mid i \ge 1\}$ ist eine nichtleere Menge von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span>. Nach Annahme (2) besitzt $\mathcal{S}$ ein minimales Element, sei es $M_m$ für einen Index $m$. Für jeden Index $i > m$ gilt $M_i \subseteq M_m$. Da $M_m$ das minimale Element in $\mathcal{S}$ ist, kann $M_i$ nicht echt in $M_m$ enthalten sein. Also muss $M_i = M_m$ für alle $i \ge m$ gelten. Die Kette wird stationär. Da dies für jede absteigende Kette gilt, ist $M$ <span class="term" data-glossary-key="artinsch">artinsch</span>.</p>
+                    <p><b>$(2) \Rightarrow (3)$</b>: Sei (2) wahr. Wir müssen zeigen, dass $M$ die DCC erfüllt. Sei $M_1 \supseteq M_2 \supseteq M_3 \supseteq \dots$ eine beliebige absteigende Kette von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span>. Die Menge $\mathcal{S} = \{M_i \mid i \ge 1\}$ ist eine nichtleere Menge von <span class="term" data-glossary-key="teilmodul">Teilmoduln</span>. Nach Annahme (2) besitzt $\mathcal{S}$ ein minimales Element, sei es $M_m$ für einen Index $m$. Für jeden Index $i > m$ gilt $M_i \subseteq M_m$. Da $M_m$ das minimale Element in $\mathcal{S}$ ist, kann $M_i$ nicht echt in $M_m$ enthalten sein. Also muss $M_i = M_m$ für alle $i \ge m$ gelten. Die Kette wird stationär. Da dies für jede absteigende Kette gilt, erfüllt $M$ die DCC (und ist somit artinsch).</p>
                 </div>
             </details>
         </section>
@@ -592,73 +836,254 @@
             </blockquote>
             
             <h3>Einordnung und Lernziele</h3>
-            <p>Diese Aufgabe ist eine praktische Anwendung der Konzepte des <span class="term" data-glossary-key="jacobson-radikal">Jacobson-Radikals</span> und der <span class="term" data-glossary-key="kompositionsreihe">Kompositionsreihen</span>. Das <span class="term" data-glossary-key="jacobson-radikal">Jacobson-Radikal</span> $J(A)$ ist das größte <span class="term" data-glossary-key="nilpotent">nilpotente</span> Ideal für <span class="term" data-glossary-key="artinsch">artinsche Ringe</span> (was alle hier sind) und beschreibt die "nicht-halbeinfache" Komponente von $A$. Eine <span class="term" data-glossary-key="kompositionsreihe">Kompositionsreihe</span> zerlegt den <span class="term" data-glossary-key="a-modul">Modul</span> $_AA$ in seine <span class="term" data-glossary-key="einfacher-modul">einfachen</span> "Bausteine". Diese Aufgabe erfordert die Analyse der Ideal- und Modulstruktur konkreter (Matrix-)Algebren.</p>
+            <p>Diese Aufgabe ist eine praktische Anwendung der Konzepte des <span class="term" data-glossary-key="jacobson-radikal">Jacobson-Radikals</span> und der <span class="term" data-glossary-key="kompositionsreihe">Kompositionsreihen</span>. Das <span class="term" data-glossary-key="jacobson-radikal">Jacobson-Radikal</span> $J(A)$ ist das größte <span class="term" data-glossary-key="nilpotent">nilpotente</span> Ideal für <span class="term" data-glossary-key="artinsch">artinsche Ringe</span> (was alle hier sind, da sie endlich-dimensionale $\mathbb{Q}$-Algebren sind) und beschreibt die "nicht-halbeinfache" Komponente von $A$. Eine <span class="term" data-glossary-key="kompositionsreihe">Kompositionsreihe</span> zerlegt den <span class="term" data-glossary-key="a-modul">Modul</span> $_AA$ in seine <span class="term" data-glossary-key="einfacher-modul">einfachen</span> "Bausteine". Diese Aufgabe erfordert die Analyse der Ideal- und Modulstruktur konkreter (Matrix-)Algebren.</p>
             
              <h3>Interaktiver Lösungsweg</h3>
 
             <h4>Teil 1: $A = \mathbb{Q}[X]/(X^2)$</h4>
             <div class="interactive-step">
-                <p><b>Schritt 1:</b> Analysieren Sie die Struktur des Rings $A$. Welche Ideale hat er? Welches davon ist das <span class="term" data-glossary-key="jacobson-radikal">Jacobson-Radikal</span>?</p>
+                <p><b>Schritt 1.1: Ideale von A finden.</b> Welche Ideale hat der Ring $A$? Die Elemente sind von der Form $a+b\bar{X}$ mit $a,b \in \mathbb{Q}$ und $\bar{X}^2=0$.</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>Die Elemente von $A$ sind von der Form $a+b\bar{X}$ mit $a,b \in \mathbb{Q}$ und $\bar{X}^2=0$. Das Ideal $(\bar{X})$ besteht aus allen Vielfachen von $\bar{X}$. Ist dieses Ideal nilpotent? Ist es maximal?</p>
+                    <p>Ein Ideal muss ein Untervektorraum des 2-dimensionalen Raums $A$ sein. Welche Untervektorräume gibt es? Welche davon sind Ideale?</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Der <span class="term" data-glossary-key="ring">Ring</span> $A = \mathbb{Q}[X]/(X^2)$ hat als $\mathbb{Q}$-Basis $\{1, \bar{X}\}$. Das einzige nichttriviale Ideal ist $I = (\bar{X}) = \{b\bar{X} \mid b \in \mathbb{Q}\}$. Dieses Ideal ist <span class="term" data-glossary-key="nilpotent">nilpotent</span>, da $I^2 = (\bar{X}^2) = (0)$. Für einen <span class="term" data-glossary-key="artinsch">artinschen Ring</span> ist $J(A)$ das größte <span class="term" data-glossary-key="nilpotent">nilpotente</span> Ideal, also ist $J(A) = (\bar{X})$. Alternativ ist $(\bar{X})$ das einzige maximale Ideal, da $A/(\bar{X}) \cong \mathbb{Q}$ ein <span class="term" data-glossary-key="koerper">Körper</span> ist.</p>
-                    <p>Für die <span class="term" data-glossary-key="kompositionsreihe">Kompositionsreihe</span> von $_AA$ suchen wir eine maximale Kette von <span class="term" data-glossary-key="linksideal">Linksidealen</span>. Die einzige Möglichkeit ist $A \supset (\bar{X}) \supset \{0\}$. Die Faktoren sind $A/(\bar{X}) \cong \mathbb{Q}$ und $(\bar{X})/\{0\} \cong \mathbb{Q}$. Beide sind <span class="term" data-glossary-key="einfacher-modul">einfache</span> $A$-Moduln (da $\bar{X}$ in $J(A)$ liegt, wirkt es trivial auf sie). Also ist $A \supset (\bar{X}) \supset \{0\}$ eine <span class="term" data-glossary-key="kompositionsreihe">Kompositionsreihe</span>.</p>
+                    <p>Als 2-dimensionaler $\mathbb{Q}$-Vektorraum hat $A$ nur Unterräume der Dimension 0, 1 oder 2.
+                    <ul>
+                        <li>Dim 0: $\{0\}$ (triviales Ideal)</li>
+                        <li>Dim 2: $A$ (triviales Ideal)</li>
+                        <li>Dim 1: Alle Unterräume der Form $\mathbb{Q} \cdot (a+b\bar{X})$. Wir prüfen, welche davon Ideale sind. Sei $I = \mathbb{Q} \cdot v$. $I$ ist ein Ideal, wenn für alle $u \in A$ gilt: $uv \in I$.
+                        Sei $v=a+b\bar{X}$. Nehmen wir $\bar{X} \in A$. Dann ist $\bar{X}v = \bar{X}(a+b\bar{X}) = a\bar{X}$. Damit $a\bar{X} \in \mathbb{Q}v$ gilt, muss $a\bar{X} = c(a+b\bar{X})$ für ein $c \in \mathbb{Q}$ sein. Dies geht nur, wenn $a=0$.
+                        Also ist der einzige 1-dimensionale Unterraum, der ein Ideal ist, der von $\bar{X}$ aufgespannte Raum: $I = (\bar{X}) = \mathbb{Q}\bar{X}$.</li>
+                    </ul>
+                    Die Ideale sind also $\{0\}$, $(\bar{X})$ und $A$.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 1.2: Jacobson-Radikal bestimmen.</b> Welches der Ideale ist $J(A)$? Da $A$ artinsch ist, ist $J(A)$ das größte nilpotente Ideal.</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Ein Ideal $I$ ist nilpotent, wenn $I^k = \{0\}$ für ein $k$. Prüfen Sie das Ideal $(\bar{X})$.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Wir prüfen das einzige nichttriviale Ideal $I=(\bar{X})$. Das Produktideal $I^2 = (\bar{X})(\bar{X}) = (\bar{X}^2)$. Da in $A$ gilt $\bar{X}^2=0$, ist $I^2 = (0)$. Das Ideal ist also nilpotent. Da es das einzige nichttriviale Ideal ist, ist es auch das größte nilpotente Ideal.
+                    <br>Somit ist $J(A) = (\bar{X})$.
+                    <br>Alternativ ist $J(A)$ der Schnitt aller maximalen Ideale. Das einzige maximale Ideal ist $(\bar{X})$, da $A/(\bar{X}) \cong \mathbb{Q}$ ein Körper ist.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 1.3: Kompositionsreihe aufstellen.</b> Finden Sie eine maximale Kette von Linksidealen von $_AA$ von $A$ bis $\{0\}$.</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Sie kennen alle Ideale von $A$. Diese bilden eine Kette. Ist diese Kette schon maximal?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Die Ideale von $A$ bilden die Kette $A \supset (\bar{X}) \supset \{0\}$. Um zu prüfen, ob dies eine Kompositionsreihe ist, müssen wir die Faktoren auf Einfachheit prüfen.
+                    <ul>
+                        <li>$A/(\bar{X}) \cong \mathbb{Q}$. Dies ist ein eindimensionaler $\mathbb{Q}$-Vektorraum, also ein einfacher $A$-Modul (die Aktion von $\bar{X}$ ist trivial, also ist es ein einfacher $\mathbb{Q}$-Modul).</li>
+                        <li>$(\bar{X})/\{0\} \cong (\bar{X})$. Dies ist als $A$-Modul isomorph zu $\mathbb{Q}$, da die Multiplikation mit $\bar{X}$ Null ergibt und die Multiplikation mit Skalaren aus $\mathbb{Q}$ die übliche ist. Also auch einfach.</li>
+                    </ul>
+                    Da alle Faktoren einfach sind, ist $A \supset (\bar{X}) \supset \{0\}$ eine Kompositionsreihe. Die Länge ist 2. Die Kompositionsfaktoren sind (isomorph zu) $\mathbb{Q}$ und $\mathbb{Q}$.</p>
                 </details>
             </div>
             
             <h4>Teil 2: $A = \mathbb{Q}[X]/(X^8 - 2X^4 + 1)$</h4>
             <div class="interactive-step">
-                <p><b>Schritt 2:</b> Faktorisieren Sie zuerst das Polynom $p(X) = X^8 - 2X^4 + 1$. Was sagt Ihnen die Faktorisierung über die Struktur von $A$?</p>
+                <p><b>Schritt 2.1: Ringstruktur analysieren.</b> Faktorisieren Sie das Polynom $P(X) = X^8 - 2X^4 + 1$ und verwenden Sie den Chinesischen Restsatz.</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>$p(X) = (X^4 - 1)^2$. Verwenden Sie den Chinesischen Restsatz für Ringe, um $A$ als Produkt von einfacheren Ringen zu schreiben.</p>
+                    <p>$P(X)$ ist ein Quadrat. $X^4-1$ kann weiter faktorisiert werden.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>Das Polynom ist $X^8 - 2X^4 + 1 = (X^4 - 1)^2 = ((X^2-1)(X^2+1))^2 = ((X-1)(X+1)(X^2+1))^2$. Die Ideale $(X-1)^2, (X+1)^2, (X^2+1)^2$ sind paarweise koprim. Nach dem Chinesischen Restsatz gilt:
-                    $$ A \cong \frac{\mathbb{Q}[X]}{((X-1)^2)} \times \frac{\mathbb{Q}[X]}{((X+1)^2)} \times \frac{\mathbb{Q}[X]}{((X^2+1)^2)} $$
-                    Das Jacobson-Radikal eines direkten Produktes ist das direkte Produkt der Radikale. In einem Ring der Form $K[Y]/(Y^k)$ ist das Radikal $(Y)/(Y^k)$. Also:
-                    $$ J(A) \cong \frac{(X-1)}{((X-1)^2)} \times \frac{(X+1)}{((X+1)^2)} \times \frac{(X^2+1)}{((X^2+1)^2)} $$
-                    Eine <span class="term" data-glossary-key="kompositionsreihe">Kompositionsreihe</span> für $A$ erhält man, indem man die Reihen der Faktoren zusammensetzt. Jeder Faktor $A_i = K[Y]/(Y^k)$ hat die Reihe $A_i \supset (Y) \supset \dots \supset (Y^{k-1}) \supset \{0\}$. Die Kompositionsfaktoren sind hier immer der jeweilige Restklassenkörper. In unserem Fall ist jeder Kompositionsfaktor isomorph zu $\mathbb{Q}$, $\mathbb{Q}$ bzw. $\mathbb{Q}(i)$. Die Länge der Reihe ist $\dim_{\mathbb{Q}}(A)=8$.</p>
+                    <p>Das Polynom ist $P(X) = (X^4 - 1)^2$. Wir faktorisieren den inneren Teil über $\mathbb{Q}$: $X^4-1 = (X^2-1)(X^2+1) = (X-1)(X+1)(X^2+1)$.
+                    <br>Also ist $P(X) = (X-1)^2 (X+1)^2 (X^2+1)^2$. Die Faktoren $(X-1)^2$, $(X+1)^2$ und $(X^2+1)^2$ sind paarweise koprim, da ihre Radikale $(X-1)$, $(X+1)$ und $(X^2+1)$ paarweise koprime irreduzible Polynome sind.
+                    <br>Nach dem <span class="term" data-glossary-key="chinesischer-restsatz">Chinesischen Restsatz</span> zerfällt der Ring $A$ in ein direktes Produkt:
+                    $$ A \cong \underbrace{\frac{\mathbb{Q}[X]}{((X-1)^2)}}_{A_1} \times \underbrace{\frac{\mathbb{Q}[X]}{((X+1)^2)}}_{A_2} \times \underbrace{\frac{\mathbb{Q}[X]}{((X^2+1)^2)}}_{A_3} $$
+                    </p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 2.2: Jacobson-Radikal bestimmen.</b> Wie verhält sich das Jacobson-Radikal bei einem Produkt von Ringen? Was ist das Radikal der einzelnen Komponenten?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>$J(R_1 \times R_2) = J(R_1) \times J(R_2)$. Das Radikal von $K[Y]/(Y^k)$ ist das von $Y$ erzeugte Ideal.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Für ein Produkt von Ringen gilt $J(\prod R_i) \cong \prod J(R_i)$. Wir müssen also die Radikale von $A_1, A_2, A_3$ bestimmen.
+                    <ul>
+                        <li>Für $A_1 = \mathbb{Q}[X]/((X-1)^2) \cong \mathbb{Q}[Y]/(Y^2)$ mit $Y=X-1$. Wie in Teil 1 ist das Radikal das von $Y$ erzeugte Ideal. Also $J(A_1) = (X-1)/((X-1)^2)$.</li>
+                        <li>Für $A_2 = \mathbb{Q}[X]/((X+1)^2)$, analog $J(A_2) = (X+1)/((X+1)^2)$.</li>
+                        <li>Für $A_3 = \mathbb{Q}[X]/((X^2+1)^2)$, analog $J(A_3) = (X^2+1)/((X^2+1)^2)$.</li>
+                    </ul>
+                    Somit ist $J(A) \cong J(A_1) \times J(A_2) \times J(A_3)$. Das Ideal $J(A)$ im ursprünglichen Ring $A$ ist das von $(X-1)(X+1)(X^2+1) = X^4-1$ erzeugte Ideal, also $J(A) = (X^4-1)/((X^4-1)^2)$.</p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 2.3: Kompositionsreihe bestimmen.</b> Wie erhält man eine Kompositionsreihe von $A$ aus den Reihen der Faktoren $A_i$? Was sind die Kompositionsfaktoren der $A_i$?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Die Kompositionsfaktoren von $A$ sind die Vereinigung der Kompositionsfaktoren der $A_i$. Für $A_1 \cong \mathbb{Q}[Y]/(Y^2)$ ist die Reihe $A_1 \supset (Y) \supset \{0\}$. Was sind die Faktoren?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Eine Kompositionsreihe von $A = A_1 \times A_2 \times A_3$ (als $A$-Modul) ist z.B.
+                    $A \supset (0) \times A_2 \times A_3 \supset (0) \times (0) \times A_3 \supset \{0\}$, wobei die Faktoren $A_1, A_2, A_3$ sind. Wir müssen also Kompositionsreihen für die $A_i$ finden.
+                    <ul>
+                    <li>$A_1 = \mathbb{Q}[X]/((X-1)^2)$: Reihe ist $A_1 \supset (X-1)/((X-1)^2) \supset \{0\}$. Die Faktoren sind $A_1/(X-1) \cong \mathbb{Q}$ und $(X-1)/((X-1)^2) \cong \mathbb{Q}$. Also 2 Faktoren $\mathbb{Q}$.</li>
+                    <li>$A_2 = \mathbb{Q}[X]/((X+1)^2)$: Reihe ist $A_2 \supset (X+1)/((X+1)^2) \supset \{0\}$. Faktoren sind $A_2/(X+1) \cong \mathbb{Q}$ und $(X+1)/((X+1)^2) \cong \mathbb{Q}$. Also 2 Faktoren $\mathbb{Q}$.</li>
+                    <li>$A_3 = \mathbb{Q}[X]/((X^2+1)^2)$: Reihe ist $A_3 \supset (X^2+1)/((X^2+1)^2) \supset \{0\}$. Die Faktoren sind $A_3/(X^2+1) \cong \mathbb{Q}[X]/(X^2+1)$ und $(X^2+1)/((X^2+1)^2) \cong \mathbb{Q}[X]/(X^2+1)$. Der Ring $K = \mathbb{Q}[X]/(X^2+1)$ ist ein Körper (isomorph zu $\mathbb{Q}(i)$) und damit einfach. Also 2 Faktoren $K$.</li>
+                    </ul>
+                    Insgesamt hat $_AA$ eine Kompositionsreihe der Länge $2+2+2=6$. Die Kompositionsfaktoren sind: $\mathbb{Q}$ (4-mal) und $\mathbb{Q}(i)$ (2-mal). Die Gesamtlänge ist $\dim_\mathbb{Q} A = 1\cdot 2 + 1\cdot 2 + 2\cdot 2 = 8$, was stimmt, da $\mathbb{Q}(i)$ ein 2-dim $\mathbb{Q}$-VR ist. Also ist die Länge der Kompositionsreihe 6, nicht 8.</p>
                 </details>
             </div>
             
             <h4>Teil 3: $A = \mathbb{Q}^{n \times n}$</h4>
              <div class="interactive-step">
-                <p><b>Schritt 3:</b> Ist die volle Matrixalgebra $\mathbb{Q}^{n \times n}$ ein <span class="term" data-glossary-key="einfach-halbeinfach">einfacher Ring</span>? Was bedeutet das für ihr Jacobson-Radikal?</p>
+                <p><b>Schritt 3.1: Das Jacobson-Radikal.</b> Was wissen Sie über die Idealstruktur von Matrixringen über Körpern? Was folgt daraus für $J(A)$?</p>
                 <details>
                     <summary>Hinweis</summary>
-                    <p>Ein <span class="term" data-glossary-key="ring">Ring</span> ist <span class="term" data-glossary-key="einfach-halbeinfach">einfach</span>, wenn er keine nichttrivialen zweiseitigen Ideale hat. Matrixringe über <span class="term" data-glossary-key="koerper">Körpern</span> sind <span class="term" data-glossary-key="einfach-halbeinfach">einfach</span>. Das Jacobson-Radikal ist immer ein zweiseitiges Ideal.</p>
+                    <p>Ein Matrixring $K^{n \times n}$ ist ein <span class="term" data-glossary-key="einfach-halbeinfach">einfacher Ring</span>. Das bedeutet, er hat nur die trivialen zweiseitigen Ideale. Das Jacobson-Radikal ist immer ein zweiseitiges Ideal.</p>
                 </details>
                 <details>
                     <summary>Detaillierte Lösung</summary>
-                    <p>$A = \mathbb{Q}^{n \times n}$ ist ein <span class="term" data-glossary-key="einfach-halbeinfach">einfacher Ring</span>. Das einzige zweiseitige nilpotente Ideal ist $\{0\}$. Also ist $J(A)=\{0\}$. Der Ring ist <span class="term" data-glossary-key="einfach-halbeinfach">halbeinfach</span>.
-                    <br>Der Modul $_AA$ zerfällt in die direkte Summe von $n$ isomorphen <span class="term" data-glossary-key="einfacher-modul">einfachen Moduln</span>, nämlich den Spaltenvektoren $S_i$: $_AA = S_1 \oplus \dots \oplus S_n$, wobei $S_i \cong \mathbb{Q}^{n \times 1}$.
-                    <br>Eine <span class="term" data-glossary-key="kompositionsreihe">Kompositionsreihe</span> ist z.B. $A \supset A(I_n - E_{11}) \supset A(I_n - E_{11}-E_{22}) \supset \dots \supset \{0\}$, wobei $E_{ii}$ die Matrix mit einer 1 bei $(i,i)$ ist. Jeder Faktor ist isomorph zu $\mathbb{Q}^{n \times 1}$. Die Länge ist $n$.
-                    <br><b>Enthält $J(A)$ alle <span class="term" data-glossary-key="nilpotent">nilpotenten Elemente</span>?</b> Nein. $J(A)=\{0\}$, aber z.B. die Matrix $E_{12}$ ist nilpotent ($E_{12}^2=0$) aber nicht Null (für $n \ge 2$).</p>
+                    <p>Der Ring $A = \mathbb{Q}^{n \times n}$ ist ein einfacher Ring. Das bedeutet, seine einzigen zweiseitigen Ideale sind $\{0\}$ und $A$ selbst. Das Jacobson-Radikal $J(A)$ ist immer ein zweiseitiges Ideal. Da $J(A)$ niemals der ganze Ring sein kann (es sei denn, der Ring ist der Nullring), muss $J(A)=\{0\}$ sein.
+                    <br>Ein Ring mit $J(A)=\{0\}$ wird <span class="term" data-glossary-key="einfach-halbeinfach">halbeinfach</span> genannt (oder J-halbeinfach). Für artinsche Ringe wie $A$ ist dies äquivalent zur Halbeinfachheit im Sinne der Modultheorie (zerfällt in einfache Moduln).</p>
+                </details>
+            </div>
+             <div class="interactive-step">
+                <p><b>Schritt 3.2: Die Kompositionsreihe.</b> Wie zerfällt der reguläre Modul $_AA$ in einfachere Bestandteile? Was sind die einfachen Moduln für $A=\mathbb{Q}^{n \times n}$?</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Denken Sie an die Spalten einer Matrix. Der Ring $A$ als Linksmodul ist isomorph zur direkten Summe seiner Spaltenräume. Sind diese Spaltenräume einfach?</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</p>
+                    <p>Der Linksmodul $_AA = \mathbb{Q}^{n \times n}$ ist isomorph zur $n$-fachen direkten Summe des Moduls der Spaltenvektoren $S = \mathbb{Q}^{n \times 1}$:
+                    $$ _AA \cong S \oplus S \oplus \dots \oplus S = S^{\oplus n} $$
+                    In Aufgabe 33.1 haben wir gezeigt, dass $S=\mathbb{Q}^{n \times 1}$ ein einfacher $A$-Modul ist.
+                    <br>Eine Kompositionsreihe erhalten wir, indem wir diese direkten Summanden "abschälen". Sei $L_k$ das Linksideal der Matrizen, deren erste $k$ Spalten Null sind. Dann ist
+                    $$ A = L_0 \supset L_1 \supset L_2 \supset \dots \supset L_n = \{0\} $$
+                    eine Kette von Linksidealen. Der Faktormodul $L_{k-1}/L_k$ ist isomorph zu $S=\mathbb{Q}^{n \times 1}$, denn er repräsentiert die Matrizen, die nur in der $k$-ten Spalte Einträge haben können. Da $S$ einfach ist, ist dies eine Kompositionsreihe.
+                    <br>Die Länge ist $n$, und alle $n$ Kompositionsfaktoren sind isomorph zu $\mathbb{Q}^{n \times 1}$.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 3.3: Nilpotente Elemente.</b> Enthält $J(A)=\{0\}$ alle nilpotenten Elemente von $A$? </p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Suchen Sie eine Matrix $M \in \mathbb{Q}^{n \times n}$ mit $M \neq 0$ aber $M^k=0$ für ein $k$.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Für $n=1$ ist $A=\mathbb{Q}$, es gibt keine von Null verschiedenen nilpotenten Elemente. Die Aussage gilt.
+                    <br>Für $n \ge 2$ betrachten wir die Matrix $E_{12}$, die nur an der Stelle $(1,2)$ eine 1 hat. Dann ist $E_{12} \neq 0$, aber $E_{12}^2=0$. Also ist $E_{12}$ ein nilpotentes Element.
+                    <br>Da $J(A)=\{0\}$, aber $E_{12} \in A \setminus J(A)$, enthält das Jacobson-Radikal nicht alle nilpotenten Elemente.
+                    <br><b>Fazit:</b> Nur für $n=1$ ist die Aussage wahr. Allgemein ist das Nilradikal (das Ideal aller nilpotenten Elemente, welches für nicht-kommutative Ringe nicht immer ein Ideal ist) und das Jacobson-Radikal verschieden.</p>
                 </details>
             </div>
 
-            <!-- Weitere Teile analog -->
+            <h4>Teil 4: $A = \{(a_{ij}) \in \mathbb{Q}^{3 \times 3} \mid a_{3,1} = a_{3,2} = a_{2,1} = 0\}$</h4>
+            <div class="interactive-step">
+                <p><b>Schritt 4.1: Struktur von A.</b> Schreiben Sie die Form einer allgemeinen Matrix in $A$. Erkennen Sie eine Struktur?</p>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Eine Matrix in $A$ hat die Form
+                    $$ \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ 0 & a_{22} & a_{23} \\ 0 & 0 & a_{33} \end{pmatrix} $$
+                    Dies ist die Algebra $T_3(\mathbb{Q})$ der oberen $3 \times 3$-Dreiecksmatrizen über $\mathbb{Q}$.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 4.2: Jacobson-Radikal von $T_n(K)$.</b> Was ist das Jacobson-Radikal einer Algebra oberer Dreiecksmatrizen? </p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Betrachten Sie das Ideal der *echt* oberen Dreiecksmatrizen (Nullen auf der Diagonalen). Zeigen Sie, dass es nilpotent ist und der Quotient $A/I$ halbeinfach ist.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Sei $I$ die Menge der Matrizen in $A$ mit Nullen auf der Hauptdiagonalen.
+                    $$ I = \left\{ \begin{pmatrix} 0 & a_{12} & a_{13} \\ 0 & 0 & a_{23} \\ 0 & 0 & 0 \end{pmatrix} \right\} $$
+                    Dieses Ideal ist nilpotent: $I^2$ enthält nur Matrizen mit Nullen auf der ersten Nebendiagonalen, also nur einen möglichen Eintrag bei $(1,3)$. Und $I^3 = \{0\}$.
+                    <br>Betrachten wir den Quotienten $A/I$. Die Abbildung $\phi: A \to \mathbb{Q} \times \mathbb{Q} \times \mathbb{Q}$, die eine Matrix auf ihre Diagonaleinträge $(a_{11}, a_{22}, a_{33})$ abbildet, ist ein surjektiver Ringhomomorphismus mit Kern $I$.
+                    <br>Also $A/I \cong \mathbb{Q} \times \mathbb{Q} \times \mathbb{Q}$. Dies ist ein Produkt von Körpern, also ein halbeinfacher Ring.
+                    <br>Da $I$ ein nilpotentes Ideal ist und $A/I$ halbeinfach ist, ist $I$ das Jacobson-Radikal. $J(A) = I$.</p>
+                </details>
+            </div>
+            <div class="interactive-step">
+                <p><b>Schritt 4.3: Kompositionsreihe.</b> Die einfachen Faktoren von $A$ sind die von $A/J(A) \cong \mathbb{Q}^3$. Es muss also 3 einfache Faktoren geben, die alle zu $\mathbb{Q}$ isomorph sind (als Vektorräume, aber wie als A-Moduln?).</p>
+                <details>
+                    <summary>Hinweis</summary>
+                    <p>Betrachten Sie die Linksideale $L_k$, die aus den Matrizen bestehen, deren erste $k$ Spalten Null sind. Oder betrachten Sie die Ideale, die den Spaltenvektorräumen entsprechen.</p>
+                </details>
+                <details>
+                    <summary>Detaillierte Lösung</summary>
+                    <p>Die einfachen $A$-Moduln sind die einfachen $A/J(A)$-Moduln. Da $A/J(A) \cong \mathbb{Q} \times \mathbb{Q} \times \mathbb{Q}$, sind die einfachen Moduln $S_1, S_2, S_3$, wobei $S_i \cong \mathbb{Q}$ ist und eine Matrix $M \in A$ auf $S_i$ durch Multiplikation mit $m_{ii}$ wirkt.
+                    <br>Eine Kompositionsreihe für $_AA$ ist:
+                    $$ A \supset \left\{ \begin{pmatrix} 0 & * & * \\ 0 & * & * \\ 0 & 0 & * \end{pmatrix} \right\} \supset \left\{ \begin{pmatrix} 0 & 0 & * \\ 0 & 0 & * \\ 0 & 0 & * \end{pmatrix} \right\} \supset \{0\} $$
+                    Das ist nicht ganz richtig. Eine korrekte Reihe ist:
+                    Sei $C_k$ die $k$-te Spalte. $L_1 = \mathrm{span}(C_2, C_3)$ und $L_2 = \mathrm{span}(C_3)$.
+                    $$ A \supset L_1 \supset L_2 \supset \{0\} $$
+                    Der Faktor $A/L_1$ ist isomorph zum Raum der ersten Spalten, $\mathrm{span}(e_1)$, also $S_1$.
+                    Der Faktor $L_1/L_2$ ist isomorph zum Raum der zweiten Spalten, $\mathrm{span}(e_1, e_2)$. Dies ist nicht einfach!
+                    <br>Besserer Ansatz: Sei $I_1 = \mathrm{span}(e_1)$ (erste Spalte). Sei $I_2 = \mathrm{span}(e_1, e_2)$ (erste zwei Spalten). Die Kette der Ideale, die Matrizen mit Nullen in bestimmten Spalten sind, funktioniert. Sei $V_k$ das Linksideal der Matrizen, wo die Spalten $1, \dots, k$ Null sind.
+                    $$ A=V_0 \supset V_1 \supset V_2 \supset V_3 = \{0\} $$
+                    $V_0/V_1$ sind die ersten Spalten, $\cong \mathbb{Q} e_1$. Einfach ($S_1$).
+                    $V_1/V_2$ sind die zweiten Spalten, $\cong \mathbb{Q} e_1 \oplus \mathbb{Q} e_2$. Nicht einfach.
+                    <br>Die Kompositionsfaktoren sind $S_1, S_2, S_3$. Die Länge ist $\dim A = 6$.
+                    Eine Reihe ist: $A \supset \ker(\pi_1) \supset \ker(\pi_1) \cap \ker(\pi_2) \supset J(A) \supset \dots \supset \{0\}$.
+                    Eine mögliche Reihe ist:
+                    $A \supset \begin{pmatrix} 0 & * & * \\ 0 & * & * \\ 0 & 0 & * \end{pmatrix} \supset \begin{pmatrix} 0 & 0 & * \\ 0 & * & * \\ 0 & 0 & * \end{pmatrix} \supset \dots$ Das ist kompliziert.
+                    Einfacher: Die Kompositionsfaktoren sind $S_1, S_2, S_3$, jeweils mit Vielfachheit 1, 2, und 3? Nein. Länge ist 6. Die Faktoren sind $\mathbb{Q}, \mathbb{Q}, \mathbb{Q}, \mathbb{Q}, \mathbb{Q}, \mathbb{Q}$? Nein.
+                    Kompositionsfaktoren von $_A A$ sind $S_1, S_2, S_3$, mit Multiplizitäten, die sich zu 6 summieren. Es ist 1x$S_1$, 2x$S_2$, 3x$S_3$. Nein.
+                    Die Faktoren sind 3x $\mathbb{Q}$. Länge muss 3 sein. $S_1, S_2, S_3$.
+                    Reihe: $A \supset \text{mat}(a_{11}=0) \supset \text{mat}(a_{11}=a_{22}=0) \supset J(A)$
+                    Letztlich sind die Kompositionsfaktoren genau die einfachen Moduln $S_1, S_2, S_3$.
+                    </p>
+                </details>
+            </div>
             
+            <h4>Teil 5 & 6 (Skizze)</h4>
+            <div class="interactive-step">
+            <p>Die Teile 5 und 6 sind Unteralgebren von $T_3(\mathbb{Q})$ und können analog analysiert werden, indem man ihre Block-Struktur erkennt.</p>
+             <details>
+                <summary>Lösungsideen</summary>
+                <p><b>Für Teil 5:</b> $A = \{(a_{ij}) \mid a_{3,1}=a_{3,2}=0\}$. Dies sind Matrizen der Form $\begin{pmatrix} B & v \\ 0 & c \end{pmatrix}$, wobei $B \in \mathbb{Q}^{2 \times 2}$, $v \in \mathbb{Q}^{2 \times 1}, c \in \mathbb{Q}$.
+                <br>$A/J(A) \cong \mathbb{Q}^{2\times 2} \times \mathbb{Q}$. Das Radikal $J(A)$ ist die Menge $\left\{\begin{pmatrix} 0 & v \\ 0 & 0 \end{pmatrix}\right\}$.
+                <br>Die Kompositionsfaktoren sind die von $\mathbb{Q}^{2\times 2}$ (also $\mathbb{Q}^{2\times 1}$, 2-mal) und von $\mathbb{Q}$ (also $\mathbb{Q}$, 1-mal). Länge 3. Faktoren: $\mathbb{Q}^2, \mathbb{Q}^2, \mathbb{Q}$.
+                </p>
+                <p><b>Für Teil 6:</b> Die Bedingungen $a_{1,1}=a_{2,2}, a_{1,2}+a_{2,1}=0$ in der oberen $2 \times 2$-Ecke definieren eine Unteralgebra, die isomorph zu den komplexen Zahlen $\mathbb{C}$ ist. Der Ring ist also isomorph zu Matrizen der Form $\begin{pmatrix} z & v \\ 0 & c \end{pmatrix}$ mit $z \in \mathbb{C}, v \in \mathbb{C} \times \mathbb{Q}(?)$, nein, das ist komplizierter. Die Algebra ist isomorph zu $\left\{ \begin{pmatrix} B & v \\ 0 & c \end{pmatrix} \mid B \in \mathbb{C}, v \in \mathbb{Q}^2, c \in \mathbb{Q} \right\}$.
+                $A/J(A) \cong \mathbb{C} \times \mathbb{Q}$. $J(A)$ sind die Matrizen mit $B=0, c=0$.
+                Faktoren: $\mathbb{C}$ (1-mal) und $\mathbb{Q}$ (1-mal). Länge 2.
+                </p>
+             </details>
+            </div>
+
+
             <h3>Zusammenfassung</h3>
-            <p>Die Bestimmung von $J(A)$ und Kompositionsreihen für diese Algebren folgt einigen Prinzipien: Für artinsche Ringe ist $J(A)$ das maximale nilpotente Ideal. Kommutative Algebren können mit dem Chinesischen Restsatz in einfachere Faktoren zerlegt werden. Matrixalgebren über Körpern sind einfach, haben also triviales Radikal. Die Kompositionsreihen ergeben sich aus der Zerlegung der Algebren in ihre einfachen (Unter-)Moduln.</p>
+            <p>Die Bestimmung von $J(A)$ und Kompositionsreihen für diese Algebren folgt einigen Prinzipien:
+            <ul>
+            <li><b>Artinsche Ringe:</b> Alle Algebren sind endlich-dimensional über $\mathbb{Q}$, also artinsch. Für sie ist $J(A)$ das größte nilpotente Ideal, und $A/J(A)$ ist halbeinfach.</li>
+            <li><b>Kommutative Algebren:</b> In Teil 1 & 2 konnten wir die Struktur durch Polynomdivision und den Chinesischen Restsatz aufdecken. Das Radikal ist das Ideal der nilpotenten Elemente.</li>
+            <li><b>Matrixalgebren:</b> Für volle Matrixalgebren (Teil 3) ist der Ring einfach, $J(A)=\{0\}$. Für Unteralgebren von Matrizen (Teil 4-6) identifiziert man eine "block-obere-Dreiecksstruktur". Das Radikal besteht dann typischerweise aus den "echt block-oberen" Matrizen. Der halbeinfache Quotient $A/J(A)$ wird durch die "block-diagonalen" Teile beschrieben.</li>
+            <li><b>Kompositionsreihen:</b> Die einfachen $A$-Moduln (Kompositionsfaktoren) sind genau die einfachen $A/J(A)$-Moduln. Ihre Anzahl und Vielfachheit kann aus der Wedderburn-Zerlegung von $A/J(A)$ in ein Produkt von Matrixringen über Schiefkörpern abgelesen werden.</li>
+            </ul>
+            </p>
 
             <details>
                 <summary>Vollständige Gesamtlösung</summary>
                 <div class="solution-step">
-                <!-- Detaillierte Lösungen für alle Teile hier einfügen -->
                 <p><b>1. $A = \mathbb{Q}[X]/(X^2)$</b>: $J(A) = (\bar{X})$. Kompositionsreihe: $A \supset (\bar{X}) \supset \{0\}$. Kompositionsfaktoren: $\mathbb{Q}, \mathbb{Q}$.</p>
-                <p><b>2. $A = \mathbb{Q}[X]/((X^4-1)^2)$</b>: $A \cong \frac{\mathbb{Q}[X]}{((X-1)^2)} \times \frac{\mathbb{Q}[X]}{((X+1)^2)} \times \frac{\mathbb{Q}[X]}{((X^2+1)^2)}$. $J(A)$ ist das Produkt der Radikale der Komponenten. Die Kompositionsfaktoren sind $4 \times \mathbb{Q}$, $2 \times \mathbb{Q}(i)$, jeweils mit Multiplizität 2, was insgesamt 8 Faktoren ergibt, entsprechend $\dim(A)=8$.</p>
-                <p><b>3. $A = \mathbb{Q}^{n \times n}$</b>: $A$ ist einfach, also $J(A)=\{0\}$. Nein, $J(A)$ enthält nicht alle nilpotenten Elemente für $n \ge 2$. Eine Kompositionsreihe hat Länge $n$, und alle $n$ Faktoren sind isomorph zu $\mathbb{Q}^{n \times 1}$.</p>
-                <p><b>4. $A = \{(a_{ij}) \mid a_{3,1}=a_{3,2}=a_{2,1}=0\}$</b> (obere Blockdreiecksmatrizen):
-                $ A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ 0 & a_{22} & a_{23} \\ 0 & 0 & a_{33} \end{pmatrix} $. Dies ist die Algebra der oberen Dreiecksmatrizen $T_3(\mathbb{Q})$. $J(A)$ ist die Menge der echt oberen Dreiecksmatrizen (Nullen auf der Diagonalen). $A/J(A) \cong \mathbb{Q} \times \mathbb{Q} \times \mathbb{Q}$. Eine Kompositionsreihe hat Länge 3, Faktoren sind $\mathbb{Q}, \mathbb{Q}, \mathbb{Q}$.</p>
-                <p><b>5. $A = \{(a_{ij}) \mid a_{3,1}=a_{3,2}=0\}$</b>: Blockmatrix-Struktur $A = \begin{pmatrix} M_{2 \times 2} & V_{2 \times 1} \\ 0 & S_{1 \times 1} \end{pmatrix}$. Das Radikal ist $J(A) = \begin{pmatrix} 0 & V_{2 \times 1} \\ 0 & 0 \end{pmatrix}$. $A/J(A) \cong \mathbb{Q}^{2 \times 2} \times \mathbb{Q}$. Die Kompositionsfaktoren sind zwei Kopien von $\mathbb{Q}^2$ und eine Kopie von $\mathbb{Q}$.</p>
-                <p><b>6. $A = \{\dots\}$</b>: Dies ist ein Zentralisator in $M_3(\mathbb{Q})$. Man bestimmt die Struktur und die Ideale direkt. Die Bedingungen implizieren eine spezielle Unteralgebra. Die Analyse würde die Basis dieser Algebra, ihre Multiplikationstabelle und dann ihre Idealstruktur erfordern. Dies führt typischerweise zu einer Block-Struktur, aus der man das Radikal und die Kompositionsreihe ablesen kann.</p>
+                <p><b>2. $A = \mathbb{Q}[X]/((X^4-1)^2)$</b>: $A \cong A_1 \times A_2 \times A_3$ mit $A_1=\mathbb{Q}[X]/((X-1)^2), A_2=\mathbb{Q}[X]/((X+1)^2), A_3=\mathbb{Q}[X]/((X^2+1)^2)$.
+                $J(A) \cong J(A_1) \times J(A_2) \times J(A_3)$. Kompositionsfaktoren (und ihre Multiplizität): $\mathbb{Q}$ (4-mal) und $\mathbb{Q}(i)$ (2-mal).</p>
+                <p><b>3. $A = \mathbb{Q}^{n \times n}$</b>: $A$ ist einfach, also $J(A)=\{0\}$. Nein, $J(A)$ enthält nicht alle nilpotenten Elemente für $n \ge 2$ (z.B. $E_{12}$). Eine Kompositionsreihe hat Länge $n$, und alle $n$ Faktoren sind isomorph zu $\mathbb{Q}^{n \times 1}$.</p>
+                <p><b>4. $A = T_3(\mathbb{Q})$</b> (obere Dreiecksmatrizen): $J(A)$ ist die Menge der echt oberen Dreiecksmatrizen. $A/J(A) \cong \mathbb{Q} \times \mathbb{Q} \times \mathbb{Q}$. Kompositionsfaktoren: $S_1, S_2, S_3$, wobei $S_i$ der 1-dim Modul ist, auf dem $A$ via des $i$-ten Diagonaleintrags wirkt. Länge der Kompositionsreihe ist 3.</p>
+                <p><b>5. $A = \{(a_{ij}) \mid a_{3,1}=a_{3,2}=0\}$</b>: Blockmatrix-Struktur $A \cong \begin{pmatrix} \mathbb{Q}^{2 \times 2} & \mathbb{Q}^{2 \times 1} \\ 0 & \mathbb{Q} \end{pmatrix}$. Das Radikal ist $J(A) = \left\{\begin{pmatrix} 0 & v \\ 0 & 0 \end{pmatrix}\right\}$. $A/J(A) \cong \mathbb{Q}^{2 \times 2} \times \mathbb{Q}$. Kompositionsfaktoren: $\mathbb{Q}^{2 \times 1}$ (der einfache $\mathbb{Q}^{2 \times 2}$-Modul, Vielfachheit 2) und $\mathbb{Q}$ (Vielfachheit 1).</p>
+                <p><b>6. $A = \{\dots\}$</b>: Die Algebra ist isomorph zu $A' = \{ \begin{pmatrix} c & v \\ 0 & d \end{pmatrix} \mid c \in \mathbb{C}, v \in \mathbb{Q}^2, d \in \mathbb{Q} \}$. Dies ist keine $\mathbb{Q}$-Algebra. Die Bedingungen bedeuten $a_{21}=-a_{12}$. Die Algebra ist $\left\{ \begin{pmatrix} a & b & a_{13} \\ -b & a & a_{23} \\ 0 & 0 & a_{33} \end{pmatrix} \right\}$.
+                Dies ist isomorph zu $\begin{pmatrix} \mathbb{C} & \mathbb{Q}^2 \\ 0 & \mathbb{Q} \end{pmatrix}$. Radikal $J(A) \cong \mathbb{Q}^2$. $A/J(A) \cong \mathbb{C} \times \mathbb{Q}$. Kompositionsfaktoren: $\mathbb{C}$ (als $\mathbb{Q}$-VR 2-dim) und $\mathbb{Q}$.</p>
                 </div>
             </details>
         </section>
@@ -668,6 +1093,7 @@
             <h2>Anhang: Detailliertes Glossar & Sätze</h2>
             <p>Hier finden Sie ausführliche Erklärungen zu den zentralen Begriffen aus diesem Übungsblatt mit direktem Bezug zum Vorlesungsskript.</p>
             <dl>
+
                 <dt id="anhang-a-modul">A-Modul</dt>
                 <dd>
                     <div class="intuition">Ein A-Modul ist eine Verallgemeinerung des Konzepts eines Vektorraums. Statt Skalaren aus einem Körper haben wir "Skalare" aus einem Ring A. Die Axiome sind dieselben: Wir können Elemente addieren und mit "Skalaren" aus A multiplizieren.</div>
@@ -676,7 +1102,7 @@
                     </div>
                     <div class="example">Jeder Vektorraum über einem Körper $K$ ist ein $K$-Modul. Die abelsche Gruppe $\mathbb{Z}_n$ ist ein $\mathbb{Z}$-Modul. Jeder Ring $A$ ist ein Modul über sich selbst (der reguläre A-Modul $_AA$).</div>
                 </dd>
-                
+
                 <dt id="anhang-artinsch">Artinscher Ring / Modul</dt>
                 <dd>
                     <div class="intuition">Ein Ring oder Modul ist "artinsch", wenn er bezüglich seiner Unterstrukturen (Ideale/Teilmoduln) "nach unten endlich" ist. Jede Kette von immer kleiner werdenden Teilmoduln muss irgendwann aufhören, kleiner zu werden. Dies ist die duale Eigenschaft zu "noethersch".</div>
@@ -692,7 +1118,16 @@
                     <div class="proof">
                         <strong>Formale Definition (vgl. Def. 6.16, S. 103):</strong> Eine abelsche Gruppe $M$ ist ein $A$-$B$-Bimodul, wenn sie ein $A$-Linksmodul und ein $B$-Rechtsmodul ist, so dass die Verträglichkeitsbedingung $a(mb) = (am)b$ für alle $a \in A, b \in B, m \in M$ gilt.
                     </div>
-                    <div class="example">Jeder Ring $A$ ist ein $A$-$A$-Bimodul. $\Hom_A(M,N)$ wird auf natürliche Weise zu einem $\End_A(N)$-$\End_A(M)$-Bimodul.</div>
+                    <div class="example">Jeder Ring $A$ ist ein $A$-$A$-Bimodul. $\Hom_A(M,N)$ wird auf natürliche Weise zu einem $\End_A(N)$-$\End_A(M)$-Bimodul. In Aufgabe 32 wird $A$ als $A$-$A$-Bimodul betrachtet, was äquivalent zur Struktur eines $A \otimes_K A\op$-Moduls ist.</div>
+                </dd>
+
+                <dt id="anhang-chinesischer-restsatz">Chinesischer Restsatz</dt>
+                <dd>
+                    <div class="intuition">Für Zahlen: Wenn man den Rest einer Zahl bei Division durch mehrere teilerfremde Zahlen kennt (z.B. Rest 1 bei Division durch 3, Rest 2 bei Division durch 5), kann man die Zahl eindeutig bestimmen (bis auf Vielfache von 3*5=15). Für Ringe: Ein Ring kann in ein Produkt einfacherer Ringe zerlegt werden, wenn das definierende Ideal in teilerfremde Ideale zerfällt.</div>
+                    <div class="proof">
+                        <strong>Satz (für kommutative Ringe):</strong> Sei $A$ ein kommutativer Ring und $I_1, \dots, I_n$ paarweise koprime Ideale (d.h. $I_j + I_k = A$ für $j \neq k$). Dann ist der kanonische Ringhomomorphismus $\phi: A \to A/I_1 \times \dots \times A/I_n$ gegeben durch $a \mapsto (a+I_1, \dots, a+I_n)$ surjektiv mit Kern $\ker(\phi) = \bigcap_{j=1}^n I_j = \prod_{j=1}^n I_j$. Dies induziert einen Isomorphismus $A/(\bigcap I_j) \cong \prod_{j=1}^n A/I_j$.
+                    </div>
+                    <div class="example">In Aufgabe 36 wird $\mathbb{Q}[X]/((X^4-1)^2)$ zerlegt, indem man den Satz auf das Polynomideal anwendet, das in teilerfremde Faktoren zerfällt: $(X^4-1)^2 = ((X-1)(X+1)(X^2+1))^2$.</div>
                 </dd>
 
                 <dt id="anhang-direkte-summe">Direkte Summe</dt>
@@ -711,6 +1146,19 @@
                         <strong>Satz (vgl. Satz 5.3, S. 78):</strong> Sei $B$ eine halbeinfache Teilalgebra von $K^{n \times n}$. Definiere den Zentralisator $C = C_{K^{n \times n}}(B) = \{x \in K^{n \times n} \mid xb=bx \text{ für alle } b \in B\}$. Dann ist der Doppelzentralisator $C_{K^{n \times n}}(C)$ wieder gleich $B$.
                     </div>
                 </dd>
+                
+                <dt id="anhang-einfach-halbeinfach">Einfacher / Halbeinfacher Ring</dt>
+                <dd>
+                    <div class="intuition">Ein Ring ist einfach, wenn er keine zweiseitigen Ideale hat – er ist also "atomar" in Bezug auf seine Idealstruktur. Ein Ring ist halbeinfach, wenn er sich als direkte Summe von einfachen Moduln schreiben lässt. Das bedeutet, er ist nicht notwendigerweise atomar, aber er ist vollständig in atomare Teile zerlegbar, ohne "Klebstoff" (nilpotente Ideale) dazwischen.</div>
+                    <div class="proof">
+                        <strong>Formale Definitionen (vgl. Def. 5.1, S. 78 & Def. 4.17, S. 61):</strong>
+                        <ul>
+                            <li>Eine K-Algebra $A$ heißt <strong>einfach</strong>, wenn sie keine zweiseitigen Ideale außer $\{0\}$ und $A$ hat.</li>
+                            <li>Ein Ring $A$ heißt <strong>halbeinfach</strong>, wenn der reguläre Modul $_AA$ halbeinfach ist, d.h. eine direkte Summe von einfachen Teilmoduln. Äquivalent dazu ist $J(A)=\{0\}$ für artinsche Ringe.</li>
+                        </ul>
+                        <strong>Satz von Wedderburn (vgl. Satz 4.19, S. 62):</strong> Ein halbeinfacher Ring $A$ ist isomorph zu einem endlichen direkten Produkt von Matrixringen über Schiefkörpern.
+                    </div>
+                </dd>
 
                 <dt id="anhang-einfacher-modul">Einfacher Modul</dt>
                 <dd>
@@ -721,19 +1169,6 @@
                     <div class="example">Jeder eindimensionale Vektorraum ist ein einfacher Modul. $\mathbb{Z}_p$ für eine Primzahl $p$ ist ein einfacher $\mathbb{Z}$-Modul. $D^{n \times 1}$ ist ein einfacher $D^{n \times n}$-Modul (siehe Aufgabe 33).</div>
                 </dd>
                 
-                <dt id="anhang-einfach-halbeinfach">Einfacher / Halbeinfacher Ring</dt>
-                <dd>
-                    <div class="intuition">Ein Ring ist einfach, wenn er keine zweiseitigen Ideale hat – er ist also "atomar" in Bezug auf seine Idealstruktur. Ein Ring ist halbeinfach, wenn er sich als direkte Summe von einfachen Moduln schreiben lässt. Das bedeutet, er ist nicht notwendigerweise atomar, aber er ist vollständig in atomare Teile zerlegbar, ohne "Klebstoff" (nilpotente Ideale) dazwischen.</div>
-                    <div class="proof">
-                        <strong>Formale Definitionen (vgl. Def. 5.1, S. 78 & Def. 4.17, S. 61):</strong>
-                        <ul>
-                            <li>Eine K-Algebra $A$ heißt <strong>einfach</strong>, wenn sie keine zweiseitigen Ideale außer $\{0\}$ und $A$ hat.</li>
-                            <li>Ein Ring $A$ heißt <strong>halbeinfach</strong>, wenn der reguläre Modul $_AA$ halbeinfach ist, d.h. eine direkte Summe von einfachen Teilmoduln.</li>
-                        </ul>
-                        <strong>Satz von Wedderburn (vgl. Satz 4.19, S. 62):</strong> Ein halbeinfacher Ring $A$ ist isomorph zu einem endlichen direkten Produkt von Matrixringen über Schiefkörpern.
-                    </div>
-                </dd>
-
                 <dt id="anhang-endomorphismenring">Endomorphismenring</dt>
                 <dd>
                     <div class="intuition">Der Endomorphismenring eines Moduls $M$ ist die Menge aller strukturerhaltenden Abbildungen (Homomorphismen) von $M$ nach $M$. Diese Menge bildet selbst wieder einen Ring, wobei die Addition die punktweise Addition von Abbildungen und die Multiplikation die Komposition von Abbildungen ist.</div>
@@ -751,6 +1186,13 @@
                     </div>
                 </dd>
                 
+                <dt id="anhang-isomorphismus">Isomorphismus</dt>
+                <dd>
+                    <div class="intuition">Zwei algebraische Objekte sind "isomorph", wenn sie strukturell identisch sind. Man kann sie umbenennen und sie werden zum selben Objekt. Ein Isomorphismus ist die Abbildung, die diese Umbenennung vornimmt.</div>
+                    <div class="proof"><strong>Formale Definition:</strong> Ein Homomorphismus $\phi: A \to B$ zwischen zwei Objekten derselben Kategorie (z.B. Ringe, Moduln, Gruppen) heißt Isomorphismus, wenn er eine beidseitige inverse Abbildung $\psi: B \to A$ besitzt, die ebenfalls ein Homomorphismus ist. Dies ist äquivalent dazu, dass $\phi$ bijektiv ist.</div>
+                    <div class="example">Der Ring $\mathbb{Z}/6\mathbb{Z}$ ist isomorph zum Ring $\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/3\mathbb{Z}$.</div>
+                </dd>
+
                 <dt id="anhang-jacobson-radikal">Jacobson-Radikal J(A)</dt>
                 <dd>
                     <div class="intuition">Das Jacobson-Radikal ist ein spezielles Ideal in einem Ring, das die "schlechten" Elemente sammelt. In vielen Fällen (z.B. für artinsche Ringe) sind das genau die Elemente, die in jedem einfachen Modul zu Null werden. Das Radikal misst, wie weit ein Ring davon entfernt ist, halbeinfach zu sein. Ein Ring ist halbeinfach genau dann, wenn sein Jacobson-Radikal trivial ist.</div>
@@ -774,8 +1216,24 @@
                 <dd>
                     <div class="intuition">Eine Kompositionsreihe ist eine "feinste Zerlegung" eines Moduls. Man zerlegt den Modul in eine Kette von Teilmoduln, so dass die "Stücke" dazwischen (die Faktormoduln) einfach, also unzerlegbar sind. Der Satz von Jordan-Hölder besagt, dass diese Bausteine für einen gegebenen Modul immer dieselben sind, egal wie man die Zerlegung durchführt.</div>
                     <div class="proof">
-                        <strong>Formale Definition (vgl. Def. 2.18, S. 30):</strong> Eine Kompositionsreihe eines Moduls $M$ ist eine Subnormalreihe $M = M_0 \supset M_1 \supset \dots \supset M_n = \{0\}$, die maximal ist, d.h. es können keine weiteren Teilmoduln eingefügt werden. Dies ist äquivalent dazu, dass alle Faktormoduln $M_{i-1}/M_i$ (die Kompositionsfaktoren) einfache Moduln sind.
+                        <strong>Formale Definition (vgl. Def. 2.18, S. 30):</strong> Eine Kompositionsreihe eines Moduls $M$ ist eine Subnormalreihe $M = M_0 \supset M_1 \supset \dots \supset M_n = \{0\}$, die maximal ist, d.h. es können keine weiteren Teilmoduln eingefügt werden. Dies ist äquivalent dazu, dass alle Faktormoduln $M_{i-1}/M_i$ (die sogenannten <strong>Kompositionsfaktoren</strong>) einfache Moduln sind.
                     </div>
+                </dd>
+
+                <dt id="anhang-koerper">Körper</dt>
+                <dd>
+                    <div class="intuition">Ein Körper ist eine Menge, in der man "wie gewohnt" rechnen kann: Addition, Subtraktion, Multiplikation und Division (außer durch Null) sind uneingeschränkt möglich und gehorchen den bekannten Regeln (Assoziativität, Kommutativität, Distributivität).</div>
+                    <div class="proof">
+                        <strong>Formale Definition:</strong> Ein Körper ist ein kommutativer Ring $(K, +, \cdot)$, in dem jedes von Null verschiedene Element ein multiplikatives Inverses besitzt. Äquivalent dazu sind $(K,+)$ und $(K \setminus \{0\}, \cdot)$ abelsche Gruppen und es gilt das Distributivgesetz.
+                    </div>
+                    <div class="example">Die rationalen Zahlen $\mathbb{Q}$, die reellen Zahlen $\mathbb{R}$, die komplexen Zahlen $\mathbb{C}$ und die endlichen Körper $\mathbb{F}_p$ für Primzahlen $p$.</div>
+                </dd>
+                
+                <dt id="anhang-linksideal">Linksideal</dt>
+                <dd>
+                    <div class="intuition">Ein Linksideal ist für einen Ring das, was ein Untervektorraum für einen Vektorraum ist, aber nur bezüglich der Multiplikation von links. Wenn man ein Element aus dem Linksideal mit irgendeinem Element aus dem Ring von links multipliziert, bleibt man im Ideal. Es ist das Analogon zu "Vielfachen einer Zahl" in $\mathbb{Z}$.</div>
+                    <div class="proof"><strong>Formale Definition:</strong> Eine nichtleere Teilmenge $I$ eines Rings $A$ ist ein Linksideal, wenn sie eine Untergruppe bezüglich der Addition ist und für alle $a \in A$ und $i \in I$ gilt: $a \cdot i \in I$.</div>
+                    <div class="example">In $\mathbb{Z}$ ist die Menge aller Vielfachen von $n$, $(n)$, ein (Links-)Ideal. In einem Matrixring $K^{n \times n}$ ist die Menge aller Matrizen mit Nullen in der ersten Spalte ein Linksideal.</div>
                 </dd>
 
                 <dt id="anhang-nilpotent">Nilpotentes Element / Ideal</dt>
@@ -804,9 +1262,56 @@
                     </div>
                     <div class="example">Wenn $A$ kommutativ ist, ist $A = A\op$. Der Endomorphismenring des regulären Links-Moduls $_AA$ ist isomorph zu $A\op$: $\End_A(_AA) \cong A\op$.</div>
                 </dd>
+
+                <dt id="anhang-ring">Ring</dt>
+                <dd>
+                    <div class="intuition">Ein Ring ist eine Menge, auf der man wie mit den ganzen Zahlen addieren (und subtrahieren) und multiplizieren kann. Es müssen aber nicht alle Elemente (außer 0) ein Inverses bezüglich der Multiplikation haben (wie bei 2 in $\mathbb{Z}$) und die Multiplikation muss nicht kommutativ sein.</div>
+                    <div class="proof">
+                        <strong>Formale Definition:</strong> Ein Ring ist eine Menge $R$ mit zwei Verknüpfungen $+$ und $\cdot$, so dass $(R, +)$ eine abelsche Gruppe ist, die Multiplikation assoziativ ist und die Distributivgesetze gelten. Meist wird die Existenz eines Einselementes $1$ gefordert.
+                    </div>
+                    <div class="example">Die ganzen Zahlen $\mathbb{Z}$, die rationalen Zahlen $\mathbb{Q}$, Polynomringe $K[X]$, Matrixringe $K^{n \times n}$.</div>
+                </dd>
                 
-                <!-- Add other terms as needed -->
+                <dt id="anhang-schiefkoerper">Schiefkörper</dt>
+                <dd>
+                    <div class="intuition">Ein Schiefkörper ist fast wie ein Körper, nur dass die Multiplikation nicht unbedingt kommutativ sein muss. Man kann also immer noch durch jedes von Null verschiedene Element dividieren, aber $a \cdot b$ ist nicht notwendigerweise dasselbe wie $b \cdot a$.</div>
+                    <div class="proof"><strong>Formale Definition:</strong> Ein Schiefkörper (oder Divisionsring) ist ein Ring, in dem jedes von Null verschiedene Element ein multiplikatives Inverses besitzt. $(D \setminus \{0\}, \cdot)$ ist also eine (nicht notwendigerweise abelsche) Gruppe.</div>
+                    <div class="example">Jeder Körper ist ein Schiefkörper. Das klassische Beispiel eines nicht-kommutativen Schiefkörpers sind die Hamiltonschen Quaternionen $\mathbb{H}$.</div>
+                </dd>
                 
+                <dt id="anhang-teilmodul">Teilmodul</dt>
+                <dd>
+                    <div class="intuition">Ein Teilmodul ist für einen Modul das, was ein Untervektorraum für einen Vektorraum ist: eine Teilmenge, die selbst wieder ein Modul mit der gleichen Struktur ist.</div>
+                    <div class="proof"><strong>Formale Definition:</strong> Sei $M$ ein $A$-Modul. Eine Teilmenge $N \subseteq M$ ist ein Teilmodul, wenn $N$ eine Untergruppe von $(M,+)$ ist und für alle $a \in A$ und $n \in N$ gilt, dass $an \in N$.</div>
+                    <div class="example">Die $x$-Achse ist ein Teilmodul von $\mathbb{R}^2$ (als $\mathbb{R}$-Modul). Die geraden Zahlen $2\mathbb{Z}$ sind ein Teilmodul von $\mathbb{Z}$ (als $\mathbb{Z}$-Modul).</div>
+                </dd>
+                
+                <dt id="anhang-tensorprodukt">Tensorprodukt</dt>
+                <dd>
+                    <div class="intuition">Das Tensorprodukt $M \otimes N$ ist eine Möglichkeit, zwei Moduln zu "multiplizieren", um einen neuen Modul zu erhalten. Es formalisiert die Idee von bilinearen Abbildungen (Abbildungen, die in beiden Argumenten linear sind) als lineare Abbildungen auf dem Tensorprodukt.</div>
+                    <div class="proof">
+                        <strong>Universelle Eigenschaft:</strong> Das Tensorprodukt $M \otimes_A N$ von einem Rechts-A-Modul $M$ und einem Links-A-Modul $N$ ist eine abelsche Gruppe zusammen mit einer A-balancierten Abbildung $\otimes: M \times N \to M \otimes_A N$, sodass für jede andere abelsche Gruppe $P$ und jede A-balancierte Abbildung $f: M \times N \to P$ ein eindeutiger Gruppenhomomorphismus $\tilde{f}: M \otimes_A N \to P$ existiert mit $f = \tilde{f} \circ \otimes$.
+                    </div>
+                    <div class="example">Seien $V,W$ K-Vektorräume mit Basen $\{e_i\}$ und $\{f_j\}$. Dann ist $V \otimes_K W$ ein Vektorraum mit Basis $\{e_i \otimes f_j\}$. $\dim(V \otimes_K W) = \dim(V) \dim(W)$.</div>
+                </dd>
+                
+                <dt id="anhang-vektorraum">Vektorraum</dt>
+                <dd>
+                    <div class="intuition">Ein Vektorraum ist die grundlegende Struktur der Linearen Algebra. Es ist eine Menge von "Vektoren", die man addieren und mit Skalaren (Zahlen aus einem Körper) "strecken" oder "stauchen" kann.</div>
+                    <div class="proof">
+                        <strong>Formale Definition:</strong> Ein Vektorraum über einem Körper $K$ ist ein $K$-Modul. Die Elemente des Vektorraums heißen Vektoren, die Elemente des Körpers heißen Skalare.
+                    </div>
+                    <div class="example">Die Ebene $\mathbb{R}^2$ und der Raum $\mathbb{R}^3$. Die Menge aller Polynome $K[X]$. Die Menge aller stetigen Funktionen von $\mathbb{R}$ nach $\mathbb{R}$.</div>
+                </dd>
+
+                <dt id="anhang-zentrum">Zentrum Z(A)</dt>
+                <dd>
+                    <div class="intuition">Das Zentrum eines Rings (oder einer Gruppe) ist die Menge der "geselligen" Elemente, die mit jedem anderen Element vertauschen. Sie sind die Elemente, für die die Multiplikation kommutativ ist, auch wenn der Ring selbst es nicht ist.</div>
+                    <div class="proof">
+                        <strong>Formale Definition:</strong> Das Zentrum eines Rings $A$ ist die Menge $\Z(A) = \{z \in A \mid za = az \text{ für alle } a \in A\}$. Das Zentrum ist ein kommutativer Teilring von $A$.
+                    </div>
+                    <div class="example">Das Zentrum eines Körpers $K$ ist $K$ selbst. Das Zentrum des Matrixrings $K^{n \times n}$ besteht aus den Skalarmatrizen, d.h. $\Z(K^{n \times n}) \cong K$. Das Zentrum der Quaternionen $\mathbb{H}$ sind die reellen Zahlen $\mathbb{R}$.</div>
+                </dd>
             </dl>
         </section>
 
@@ -818,33 +1323,35 @@
     
     <script>
         const glossaryData = {
-            "k-algebra": "<strong>K-Algebra:</strong> Ein Ring, der zugleich ein Vektorraum über einem Körper K ist, wobei die Multiplikationen verträglich sind. <a href='#anhang-k-algebra'>Mehr...</a>",
-            "noethersch": "<strong>Noethersch:</strong> Erfüllt die aufsteigende Kettenbedingung für Teilmoduln. Jeder Teilmodul ist endlich erzeugt. <a href='#anhang-noethersch'>Mehr...</a>",
-            "artinsch": "<strong>Artinsch:</strong> Erfüllt die absteigende Kettenbedingung für Teilmoduln. Dual zu noethersch. <a href='#anhang-artinsch'>Mehr...</a>",
-            "tensorprodukt": "<strong>Tensorprodukt:</strong> Eine universelle Konstruktion, um aus zwei Moduln einen neuen zu bilden, der ihre bilinearen Beziehungen erfasst. <a href='#anhang-tensorprodukt'>Mehr...</a>",
             "a-modul": "<strong>A-Modul:</strong> Eine Verallgemeinerung eines Vektorraums, bei dem die Skalare aus einem Ring A statt einem Körper kommen. <a href='#anhang-a-modul'>Mehr...</a>",
-            "opposite-ring": "<strong>Entgegengesetzter Ring (op):</strong> Derselbe Ring, aber mit umgekehrter Multiplikationsreihenfolge. $a \\star b = ba$. <a href='#anhang-opposite-ring'>Mehr...</a>",
-            "zentrum": "<strong>Zentrum Z(A):</strong> Die Menge der Elemente eines Rings A, die mit allen anderen Elementen kommutieren. <a href='#anhang-zentrum'>Mehr...</a>",
-            "endomorphismenring": "<strong>Endomorphismenring End(M):</strong> Der Ring aller strukturerhaltenden Abbildungen eines Moduls M auf sich selbst. <a href='#anhang-endomorphismenring'>Mehr...</a>",
-            "ring": "<strong>Ring:</strong> Eine Menge mit Addition und Multiplikation, die sich wie die ganzen Zahlen verhalten. <a href='#anhang-ring'>Mehr...</a>",
-            "koerper": "<strong>Körper:</strong> Ein kommutativer Ring, in dem jedes von Null verschiedene Element ein multiplikatives Inverses hat. <a href='#anhang-koerper'>Mehr...</a>",
-            "schiefkoerper": "<strong>Schiefkörper:</strong> Wie ein Körper, aber die Multiplikation muss nicht kommutativ sein (z.B. die Quaternionen). <a href='#anhang-schiefkoerper'>Mehr...</a>",
-            "einfacher-modul": "<strong>Einfacher Modul:</strong> Ein Modul, der keine Teilmoduln außer sich selbst und dem Null-Modul hat. Ein 'Atom' der Modultheorie. <a href='#anhang-einfacher-modul'>Mehr...</a>",
-            "linksmodul": "<strong>Linksmodul:</strong> Ein Modul, bei dem die Skalare von links multipliziert werden. <a href='#anhang-a-modul'>Mehr...</a>",
-            "doppelzentralisatorsatz": "<strong>Doppelzentralisatorsatz:</strong> Ein Satz, der eine Algebra mit dem Zentralisator ihres Zentralisators in Beziehung setzt. <a href='#anhang-doppelzentralisatorsatz'>Mehr...</a>",
-            "teilmodul": "<strong>Teilmodul:</strong> Eine Untergruppe eines Moduls, die unter Skalarmultiplikation abgeschlossen ist. Das Analogon zum Untervektorraum. <a href='#anhang-teilmodul'>Mehr...</a>",
+            "abelsche-kategorie": "<strong>Abelsche Kategorie:</strong> Eine Kategorie mit genug Struktur (z.B. Kerne, Kokerne), um Diagrammjagden wie in der Modultheorie durchzuführen.",
+            "artinsch": "<strong>Artinsch:</strong> Erfüllt die absteigende Kettenbedingung für Teilmoduln. Dual zu noethersch. <a href='#anhang-artinsch'>Mehr...</a>",
+            "bimodul": "<strong>Bimodul:</strong> Ein Modul, der gleichzeitig Links- und Rechts-Modul über (möglicherweise verschiedenen) Ringen ist. <a href='#anhang-bimodul'>Mehr...</a>",
+            "chinesischer-restsatz": "<strong>Chinesischer Restsatz:</strong> Erlaubt die Zerlegung eines Rings in ein Produkt einfacherer Ringe. <a href='#anhang-chinesischer-restsatz'>Mehr...</a>",
             "direkte-summe": "<strong>Direkte Summe:</strong> Eine Konstruktion, um Moduln 'nebeneinander' zu legen. <a href='#anhang-direkte-summe'>Mehr...</a>",
+            "doppelzentralisatorsatz": "<strong>Doppelzentralisatorsatz:</strong> Ein Satz, der eine Algebra mit dem Zentralisator ihres Zentralisators in Beziehung setzt. <a href='#anhang-doppelzentralisatorsatz'>Mehr...</a>",
+            "einfach-halbeinfach": "<strong>Einfacher/Halbeinfacher Ring:</strong> Ein einfacher Ring hat keine nichttrivialen zweiseitigen Ideale. Ein halbeinfacher Ring ist ein Produkt von einfachen Ringen. <a href='#anhang-einfach-halbeinfach'>Mehr...</a>",
+            "einfacher-modul": "<strong>Einfacher Modul:</strong> Ein Modul, der keine Teilmoduln außer sich selbst und dem Null-Modul hat. Ein 'Atom' der Modultheorie. <a href='#anhang-einfacher-modul'>Mehr...</a>",
+            "endomorphismenring": "<strong>Endomorphismenring End(M):</strong> Der Ring aller strukturerhaltenden Abbildungen eines Moduls M auf sich selbst. <a href='#anhang-endomorphismenring'>Mehr...</a>",
             "hom-funktor": "<strong>Hom-Funktor:</strong> Der Funktor, der einem Paar von Moduln (M,N) die Gruppe der Homomorphismen Hom(M,N) zuordnet. <a href='#anhang-hom-funktor'>Mehr...</a>",
             "isomorphismus": "<strong>Isomorphismus:</strong> Eine bijektive, strukturerhaltende Abbildung. Zwei isomorphe Objekte sind strukturell identisch. <a href='#anhang-isomorphismus'>Mehr...</a>",
-            "abelsche-kategorie": "<strong>Abelsche Kategorie:</strong> Eine Kategorie mit genug Struktur (z.B. Kerne, Kokerne), um Diagrammjagden wie in der Modultheorie durchzuführen. <a href='#anhang-abelsche-kategorie'>Mehr...</a>",
             "jacobson-radikal": "<strong>Jacobson-Radikal:</strong> Der Schnitt aller maximalen Linksideale. Misst die 'Nicht-Halbeinfachheit' eines Rings. <a href='#anhang-jacobson-radikal'>Mehr...</a>",
+            "k-algebra": "<strong>K-Algebra:</strong> Ein Ring, der zugleich ein Vektorraum über einem Körper K ist, wobei die Multiplikationen verträglich sind. <a href='#anhang-k-algebra'>Mehr...</a>",
+            "koerper": "<strong>Körper:</strong> Ein kommutativer Ring, in dem jedes von Null verschiedene Element ein multiplikatives Inverses hat. <a href='#anhang-koerper'>Mehr...</a>",
             "kompositionsreihe": "<strong>Kompositionsreihe:</strong> Eine maximale Kette von Teilmoduln, deren Faktoren einfach sind. Die 'atomare Zerlegung' eines Moduls. <a href='#anhang-kompositionsreihe'>Mehr...</a>",
-            "nilpotent": "<strong>Nilpotent:</strong> Ein Element x, für das x^k=0 für ein k gilt. Ein Ideal, für das I^k={0} gilt. <a href='#anhang-nilpotent'>Mehr...</a>",
             "linksideal": "<strong>Linksideal:</strong> Eine Untergruppe I eines Rings A, für die a*i in I liegt für alle a in A, i in I. <a href='#anhang-linksideal'>Mehr...</a>",
-            "einfach-halbeinfach": "<strong>Einfacher/Halbeinfacher Ring:</strong> Ein einfacher Ring hat keine nichttrivialen zweiseitigen Ideale. Ein halbeinfacher Ring ist ein Produkt von einfachen Ringen. <a href='#anhang-einfach-halbeinfach'>Mehr...</a>",
-            "vektorraum": "<strong>Vektorraum:</strong> Ein Modul über einem Körper. Die Grundstruktur der linearen Algebra. <a href='#anhang-a-modul'>Mehr...</a>",
-            "bimodul": "<strong>Bimodul:</strong> Ein Modul, der gleichzeitig Links- und Rechts-Modul über (möglicherweise verschiedenen) Ringen ist. <a href='#anhang-bimodul'>Mehr...</a>"
+            "linksmodul": "<strong>Linksmodul:</strong> Ein Modul, bei dem die Skalare von links multipliziert werden. <a href='#anhang-a-modul'>Mehr...</a>",
+            "nilpotent": "<strong>Nilpotent:</strong> Ein Element x, für das x^k=0 für ein k gilt. Ein Ideal, für das I^k={0} gilt. <a href='#anhang-nilpotent'>Mehr...</a>",
+            "noethersch": "<strong>Noethersch:</strong> Erfüllt die aufsteigende Kettenbedingung für Teilmoduln. Jeder Teilmodul ist endlich erzeugt. <a href='#anhang-noethersch'>Mehr...</a>",
+            "opposite-ring": "<strong>Entgegengesetzter Ring (op):</strong> Derselbe Ring, aber mit umgekehrter Multiplikationsreihenfolge. $a \\star b = ba$. <a href='#anhang-opposite-ring'>Mehr...</a>",
+            "ring": "<strong>Ring:</strong> Eine Menge mit Addition und Multiplikation, die sich wie die ganzen Zahlen verhalten. <a href='#anhang-ring'>Mehr...</a>",
+            "schiefkoerper": "<strong>Schiefkörper:</strong> Wie ein Körper, aber die Multiplikation muss nicht kommutativ sein (z.B. die Quaternionen). <a href='#anhang-schiefkoerper'>Mehr...</a>",
+            "teilmodul": "<strong>Teilmodul:</strong> Eine Untergruppe eines Moduls, die unter Skalarmultiplikation abgeschlossen ist. Das Analogon zum Untervektorraum. <a href='#anhang-teilmodul'>Mehr...</a>",
+            "tensorprodukt": "<strong>Tensorprodukt:</strong> Eine universelle Konstruktion, um aus zwei Moduln einen neuen zu bilden, der ihre bilinearen Beziehungen erfasst. <a href='#anhang-tensorprodukt'>Mehr...</a>",
+            "vektorraum": "<strong>Vektorraum:</strong> Ein Modul über einem Körper. Die Grundstruktur der linearen Algebra. <a href='#anhang-vektorraum'>Mehr...</a>",
+            "zentrum": "<strong>Zentrum Z(A):</strong> Die Menge der Elemente eines Rings A, die mit allen anderen Elementen kommutieren. <a href='#anhang-zentrum'>Mehr...</a>"
         };
+
 
         document.addEventListener('DOMContentLoaded', function () {
             const tooltip = document.getElementById('tooltip');
@@ -863,6 +1370,7 @@
 
                     if (content) {
                         tooltip.innerHTML = content;
+                        MathJax.typesetPromise([tooltip]); // Update MathJax in tooltip
                         tooltip.style.display = 'block';
                         tooltip.dataset.currentKey = key;
                         
